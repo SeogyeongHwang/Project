@@ -1,6 +1,4 @@
 import pandas as pd
-#import csv
-#import matplotlib.pyplot as plt
 from plotnine import ggplot, aes, geom_line
 
 # download data
