@@ -20,12 +20,14 @@ class BasicAnalysis:
         return
     
     def scatter_plot(self):
-        #load the data to a df
+        # load the data to a df
         data = pd.read_csv(self.csv_data)
+        # remove 'crime' column
+        data2 = data.iloc[:, :-1]
         
-        for column in data.columns:
+        for column in data2.columns:
             print(column)
-            gg = (ggplot(data, aes(x= data[column], y='Crime')) + geom_point() + stat_smooth(method = 'lm'))
+            gg = (ggplot(data, aes(x= data[column], y=data.columns[-1])) + geom_point() + stat_smooth(method = 'lm'))
             plot_name = column + ".jpg"
             #save plots in plots directory
             gg.save(filename = plot_name, path = "Plot images")
