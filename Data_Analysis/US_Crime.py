@@ -1,5 +1,6 @@
 import pandas as pd
 from plotnine import ggplot, aes, geom_point, stat_smooth
+import os
 
 # url for csv data
 url = 'http://www.statsci.org/data/general/uscrime.txt'
@@ -22,15 +23,17 @@ class BasicAnalysis:
     def scatter_plot(self):
         # load the data to a df
         data = pd.read_csv(self.csv_data)
-        # remove 'crime' column
-        data2 = data.iloc[:, :-1]
         
-        for column in data2.columns:
+        # make folder to put plots
+        if not os.path.exists("C:/Users/HSG/.spyder-py3/spyder lab/lab6/Plots"):
+            os.mkdir("Plots")
+        
+        for column in data.iloc[:, :-1].columns:
             print(column)
             gg = (ggplot(data, aes(x= data[column], y=data.columns[-1])) + geom_point() + stat_smooth(method = 'lm'))
             plot_name = column + ".jpg"
             #save plots in plots directory
-            gg.save(filename = plot_name, path = "Plot images")
+            gg.save(filename = plot_name, path = "Plots")
             
         return
     
