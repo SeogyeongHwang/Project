@@ -25,7 +25,7 @@ class BasicAnalysis:
         data = pd.read_csv(self.csv_data)
         
         # make folder to put plots
-        if not os.path.exists("C:/Users/HSG/.spyder-py3/spyder lab/lab6/Plots"):
+        if not os.path.exists("Plots"):
             os.mkdir("Plots")
         
         for column in data.iloc[:, :-1].columns:
