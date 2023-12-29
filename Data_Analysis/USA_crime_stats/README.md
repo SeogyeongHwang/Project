@@ -72,8 +72,8 @@ In this report, we checked how much each item affected the crime rate and which 
    < rate of change with Unemployment rate or urban males >
 
    <p float="left">
-   <img src="[https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Po1.jpg](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/U1.jpg)" width="49%" height="50%">
-   <img src="[https://github.com/SeogyeongHwang/Project/blob/51299959a29601e91d2853c8fc5a040ce4c00e28/Data_Analysis/USA_crime_stats/Plots/Po2.jpg](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/U2.jpg)https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/U2.jpg" width="49%" height="50%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/U1.jpg" width="49%" height="50%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/U2.jpg" width="49%" height="50%">
    </p>
 
    + Left graph has 14-24 age group, and the right graph has 35-39 age group.
@@ -104,5 +104,22 @@ In this report, we checked how much each item affected the crime rate and which 
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/Time.jpg)
 
-   + 
+   + It slowly grows up.
+   + When x-value is between 20-30, it often has a high crime rate value.
+
+## 4. Conclusion
+
+   From the above results, we can draw the following conclusions. In the beginning, I expected that these following items would affect the crime rate a lot: mean education time, expenditure on police protection, wealth, family income, income inequality, probability of imprisonment, average time served by offenders in state prison. I cannot say that these conclusions are exact statistics, because the graph went up and down repeatedly in one graph, instead of going up or down clearly. Therefore, if we just look at the reformulation of the graph and draw the conclusion, the result was totally different from what I expected except for the average time served by offenders in state prison.
+As we can see from the graphs, the crime rate increases, when…
++there are less 14-24 aged men in the state.
++mean years of education aged 25 years or over increases.
++per capita expenditure on police protection is high.
++the number of males per 100 females is 96 ~ 100 or more than 105.
++the percentage of nonwhites is less.
++14-24 aged people have less unemployment rate and 35-39 aged people have around 4% unemployment rate.
++people are wealthier.
++the percentage of families earning below half the median income is less.
++the probability of imprisonment has less value.
++the average time served by offenders in state prison is longer.
+
 
