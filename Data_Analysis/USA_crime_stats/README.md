@@ -109,12 +109,12 @@ In this report, we checked how much each item affected the crime rate and which 
 
 ## 4. Conclusion
 
-   From the above results, we can draw the following conclusions. In the beginning, I expected that these following items would affect the crime rate a lot: mean education time, expenditure on police protection, wealth, family income, income inequality, probability of imprisonment, average time served by offenders in state prison. I cannot say that these conclusions are exact statistics, because the graph went up and down repeatedly in one graph, instead of going up or down clearly. Therefore, if we just look at the reformulation of the graph and draw the conclusion, the result was totally different from what I expected except for the average time served by offenders in state prison.
+   From the above results, we can draw the following conclusions. In the beginning, I expected that these following items would affect the crime rate a lot: mean education time, expenditure on police protection, wealth, family income, income inequality, probability of imprisonment, average time served by offenders in state prison. I cannot say that these conclusions are exact statistics, because the graph went up and down repeatedly in one graph, instead of going up or down clearly. Therefore, if we just look at the reformulation of the graph and draw the conclusion, the result was totally different from what I expected.   
 As we can see from the graphs, the crime rate increases, when…
 + there are less 14-24 aged men in the state.
 + mean years of education aged 25 years or over increases.
 + per capita expenditure on police protection is high.
-+ the number of males per 100 females is 96 ~ 100 or more than 105.
++ the number of males per 100 females is high.
 + the percentage of nonwhites is less.
 + 14-24 aged people have less unemployment rate and 35-39 aged people have around 4% unemployment rate.
 + people are wealthier.
