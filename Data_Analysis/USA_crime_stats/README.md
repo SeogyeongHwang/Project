@@ -19,7 +19,7 @@ In this report, we checked how much each item affected the crime rate and which 
       + ggsave() : To save a ggplot with sensible defaults.
 
 ## 3. Result
-   
+   < rate of change with Percentage of 14-24 aged men >
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
    
    < rate of change with Percentage of 14-24 aged men >
