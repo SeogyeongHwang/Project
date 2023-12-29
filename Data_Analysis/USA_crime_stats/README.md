@@ -23,14 +23,14 @@ In this report, we checked how much each item affected the crime rate and which 
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
    
-   + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.
-   + It is a very fine slope, but the crime rate shows a downward trend.
+      + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.
+      + It is a very fine slope, but the crime rate shows a downward trend.
 
    < rate of change with Means years of Education aged 25 years or over >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Ed.jpg)
 
-   + Overall, The graph shows a trend where the crime rate increases, as the mean years increase.
+      + Overall, The graph shows a trend where the crime rate increases, as the mean years increase.
 
    < rate of change with per capita expenditure on Police protection >
 
@@ -38,4 +38,6 @@ In this report, we checked how much each item affected the crime rate and which 
    <img src="https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Po1.jpg" width="45%" height="50%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/51299959a29601e91d2853c8fc5a040ce4c00e28/Data_Analysis/USA_crime_stats/Plots/Po2.jpg" width="45%" height="50%">
    </p>
-   
+
+      + Left graph is in 1960, the right graph is in 1959. However, these have almost the same trend.
+      + Both of them show that the larger the expenditure on police protection is, the crime rate increases.
