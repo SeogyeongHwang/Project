@@ -34,4 +34,5 @@ In this report, we checked how much each item affected the crime rate and which 
 
    < rate of change with per capita expenditure on Police protection >
 
-   <img src="https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Po1.jpg" width="50%" height="50%">
+   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Po1.jpg)
+   
