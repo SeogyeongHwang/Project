@@ -19,6 +19,7 @@ In this report, we checked how much each item affected the crime rate and which 
       6) ggsave() : To save a ggplot with sensible defaults.
 
 ## 3. Result
+
    < rate of change with Percentage of 14-24 aged men >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
@@ -26,13 +27,11 @@ In this report, we checked how much each item affected the crime rate and which 
    + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.*
    + It is a very fine slope, but the crime rate shows a downward trend.
 
-
    < rate of change with Means years of Education aged 25 years or over >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Ed.jpg)
 
    + Overall, The graph shows a trend where the crime rate increases, as the mean years increase.
-
 
    < rate of change with per capita expenditure on Police protection >
 
@@ -44,9 +43,22 @@ In this report, we checked how much each item affected the crime rate and which 
    + Left graph is in 1960, the right graph is in 1959. However, these have almost the same trend.
    + Both of them show that the larger the expenditure on police protection is, the crime rate increases.
 
-
    < rate of change with Labour Force participation rate of 14-24 aged males >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/18c1d8b9adfa01e50818b4cab62300e351f68261/Data_Analysis/USA_crime_stats/Plots/LF.jpg)
 
+   + In this graph, when X data is 0.55~0.60, the average crime rate is higher than other sections.
+   + It is increasing very minutely.
+
+   < rate of change with number of Males per 100 Females >
+   
+   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/683557ff9e6f6abfacc41364da7a4459b39a104c/Data_Analysis/USA_crime_stats/Plots/M.F.jpg)
+
+   + At the end, when the number of males are going up, crime rate is also going up.
+   
+   < rate of change with state Population in 1960 >
+
+   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/683557ff9e6f6abfacc41364da7a4459b39a104c/Data_Analysis/USA_crime_stats/Plots/Pop.jpg)
+
    + 
+   
