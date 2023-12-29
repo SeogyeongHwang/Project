@@ -20,20 +20,20 @@ In this report, we checked how much each item affected the crime rate and which 
 
 ## 3. Result
 
-   < rate of change with Percentage of 14-24 aged men >
+###   < rate of change with Percentage of 14-24 aged men >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
    
    + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.*
    + It is a very fine slope, but the crime rate shows a downward trend.
 
-   < rate of change with Means years of Education aged 25 years or over >
+###   < rate of change with Means years of Education aged 25 years or over >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Ed.jpg)
 
    + Overall, The graph shows a trend where the crime rate increases, as the mean years increase.
 
-   < rate of change with per capita expenditure on Police protection >
+###   < rate of change with per capita expenditure on Police protection >
 
    <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Po1.jpg" width="49%" height="50%">
@@ -43,33 +43,33 @@ In this report, we checked how much each item affected the crime rate and which 
    + Left graph is in 1960, the right graph is in 1959. However, these have almost the same trend.
    + Both of them show that the larger the expenditure on police protection is, the crime rate increases.
 
-   < rate of change with Labour Force participation rate of 14-24 aged males >
+###   < rate of change with Labour Force participation rate of 14-24 aged males >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/18c1d8b9adfa01e50818b4cab62300e351f68261/Data_Analysis/USA_crime_stats/Plots/LF.jpg)
 
    + In this graph, when X data is 0.55~0.60, the average crime rate is higher than other sections.
    + It is increasing very minutely.
 
-   < rate of change with number of Males per 100 Females >
+###   < rate of change with number of Males per 100 Females >
    
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/683557ff9e6f6abfacc41364da7a4459b39a104c/Data_Analysis/USA_crime_stats/Plots/M.F.jpg)
 
    + At the end, when the number of males are going up, crime rate is also going up.
    
-   < rate of change with state Population in 1960 >
+###   < rate of change with state Population in 1960 >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/683557ff9e6f6abfacc41364da7a4459b39a104c/Data_Analysis/USA_crime_stats/Plots/Pop.jpg)
 
    + The unit is hundred thousands.
    + In the begining, It goes up and down in large amounts like a frequency.
 
-   < rate of change with percentage of Nonwhites in the population >
+ ###  < rate of change with percentage of Nonwhites in the population >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/NW.jpg)
 
    + It increases very slightlyl, but it has a maximum crime rate value when the x-value is around 10.
 
-   < rate of change with Unemployment rate or urban males >
+###   < rate of change with Unemployment rate or urban males >
 
    <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/U1.jpg" width="49%" height="50%">
@@ -81,26 +81,26 @@ In this report, we checked how much each item affected the crime rate and which 
    + For the 35-39 age group, this graph goes from low to high, with the center of the unemployment rate value having the highest crime rate.
    + These two graphs are going in an opposite way.
 
-   < rate of change with Wealth >
+###   < rate of change with Wealth >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/Wealth.jpg)
 
    + This graph is showing a trend that when the wealth value goes up, the crime rate value also goes up.
 
-   < rate of change with income Inequality >
+###   < rate of change with income Inequality >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/Ineq.jpg)
 
    + It has a gradually lowering shape. The percentage of families earning below half the median income is around 16%, it has the highest crime rate value, but when the x value goes down, the crime rate also goes down.
 
-   < rate of change with Probability of imprisonment >
+###   < rate of change with Probability of imprisonment >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/Prob.jpg)
 
    + If the ratio of probability of imprisonment is less than 0.05, the crime rate is the highest.
    + The graph is gradually going down, but when the x-value is around 0.125, the crime rate value suddenly jumped.
 
-   < ratio of change with average Time served by offenders in state prisons before their first release >
+###   < ratio of change with average Time served by offenders in state prisons before their first release >
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/Time.jpg)
 
@@ -111,15 +111,15 @@ In this report, we checked how much each item affected the crime rate and which 
 
    From the above results, we can draw the following conclusions. In the beginning, I expected that these following items would affect the crime rate a lot: mean education time, expenditure on police protection, wealth, family income, income inequality, probability of imprisonment, average time served by offenders in state prison. I cannot say that these conclusions are exact statistics, because the graph went up and down repeatedly in one graph, instead of going up or down clearly. Therefore, if we just look at the reformulation of the graph and draw the conclusion, the result was totally different from what I expected except for the average time served by offenders in state prison.
 As we can see from the graphs, the crime rate increases, when…
-+there are less 14-24 aged men in the state.
-+mean years of education aged 25 years or over increases.
-+per capita expenditure on police protection is high.
-+the number of males per 100 females is 96 ~ 100 or more than 105.
-+the percentage of nonwhites is less.
-+14-24 aged people have less unemployment rate and 35-39 aged people have around 4% unemployment rate.
-+people are wealthier.
-+the percentage of families earning below half the median income is less.
-+the probability of imprisonment has less value.
-+the average time served by offenders in state prison is longer.
++ there are less 14-24 aged men in the state.
++ mean years of education aged 25 years or over increases.
++ per capita expenditure on police protection is high.
++ the number of males per 100 females is 96 ~ 100 or more than 105.
++ the percentage of nonwhites is less.
++ 14-24 aged people have less unemployment rate and 35-39 aged people have around 4% unemployment rate.
++ people are wealthier.
++ the percentage of families earning below half the median income is less.
++ the probability of imprisonment has less value.
++ the average time served by offenders in state prison is longer.
 
 
