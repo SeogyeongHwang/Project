@@ -20,7 +20,8 @@ In this report, we checked how much each item affected the crime rate and which 
 
 ## 3. Result
 
-   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
    < rate of change with Percentage of 14-24 aged men >
+   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
+   
    + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.
    + It is a very fine slope, but the crime rate shows a downward trend.
