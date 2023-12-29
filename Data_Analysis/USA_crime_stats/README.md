@@ -25,3 +25,13 @@ In this report, we checked how much each item affected the crime rate and which 
    
    + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.
    + It is a very fine slope, but the crime rate shows a downward trend.
+
+   < rate of change with Means years of Education aged 25 years or over >
+
+   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Ed.jpg)
+
+   + Overall, The graph shows a trend where the crime rate increases, as the mean years increase.
+
+   < rate of change with per capita expenditure on Police protection >
+
+   <img src="https://github.com/SeogyeongHwang/Project/blob/a3ab64523fb51e5cc0d1c123a1de94c08c40ed83/Data_Analysis/USA_crime_stats/Plots/Po1.jpg" width="50%" height="50%">
