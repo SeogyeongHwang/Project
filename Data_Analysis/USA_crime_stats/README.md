@@ -7,4 +7,14 @@
 In this report, we checked how much each item affected the crime rate and which one affected the crime rate the most. 
 
 ## 2. Method
-   
+
+   Six methods were used in this code.
+   + pd.read_csv() : To read csv file into dataframe. The default delimiter is ',' but can be used interchangeably. I switched to '\t'.
+   + to_csv() : To make dataframe as a csv file.
+   + os.path.exists() :  To check whether the directory or file exists or not
+   + os.mkdir() : To create a directory.
+   + ggplot() : To plot data.
+                 For the graph type, I added geom_point() to create scatter plots with stat_smooth(method = lm) to display the results with linear model.
+   + ggsave() : To save a ggplot with sensible defaults.
+
+## 3. Result
