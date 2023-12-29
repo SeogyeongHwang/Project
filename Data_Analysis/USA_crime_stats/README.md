@@ -9,12 +9,18 @@ In this report, we checked how much each item affected the crime rate and which 
 ## 2. Method
 
    Six methods were used in this code.
-   + pd.read_csv() : To read csv file into dataframe. The default delimiter is ',' but can be used interchangeably. I switched to '\t'.
-   + to_csv() : To make dataframe as a csv file.
-   + os.path.exists() :  To check whether the directory or file exists or not
-   + os.mkdir() : To create a directory.
-   + ggplot() : To plot data.
+   
+      + pd.read_csv() : To read csv file into dataframe. The default delimiter is ',' but can be used interchangeably. I switched to '\t'.
+      + to_csv() : To make dataframe as a csv file.
+      + os.path.exists() :  To check whether the directory or file exists or not
+      + os.mkdir() : To create a directory.
+      + ggplot() : To plot data.
                  For the graph type, I added geom_point() to create scatter plots with stat_smooth(method = lm) to display the results with linear model.
-   + ggsave() : To save a ggplot with sensible defaults.
+      + ggsave() : To save a ggplot with sensible defaults.
 
 ## 3. Result
+
+   ![Alt text](https://github.com/SeogyeongHwang/Project/blob/8d31bf164e23d3a1715c8437ac26cc3dd609daef/Data_Analysis/USA_crime_stats/Plots/M.jpg)
+   < rate of change with Percentage of 14-24 aged men >
+   + When the percentage of males aged 14-24 is between 12 to 14, it generally shows a high crime rate.
+   + It is a very fine slope, but the crime rate shows a downward trend.
