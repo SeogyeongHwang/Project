@@ -104,7 +104,7 @@ In this report, we checked how much each item affected the crime rate and which 
 
    ![Alt text](https://github.com/SeogyeongHwang/Project/blob/3a1da6efcb7405cee18df5a94dd7de5c693a869d/Data_Analysis/USA_crime_stats/Plots/Time.jpg)
 
-   + It slowly grows up.
+   + It slowly goes up.
    + When x-value is between 20-30, it often has a high crime rate value.
 
 ## 4. Conclusion
