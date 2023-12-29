@@ -116,7 +116,7 @@ As we can see from the graphs, the crime rate increases, when…
 + per capita expenditure on police protection is high.
 + the number of males per 100 females is high.
 + the percentage of nonwhites is less.
-+ 14-24 aged people have less unemployment rate and 35-39 aged people have around 4% unemployment rate.
++ 14-24 aged people have less unemployment rate and 35-39 aged people have high unemployment rate.
 + people are wealthier.
 + the percentage of families earning below half the median income is less.
 + the probability of imprisonment has less value.
