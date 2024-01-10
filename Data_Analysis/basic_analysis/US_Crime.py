@@ -1,7 +1,6 @@
 import pandas as pd
 from plotnine import ggplot, aes, geom_point, stat_smooth
 import os
-import statistics
 import matplotlib.pyplot as plt
 
 # url for csv data
