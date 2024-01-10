@@ -14,4 +14,4 @@ The average or standard deviation commonly used to produce statistics is more li
 
 ### Normalization Box Plot
 
-Change the range of the characteristic value to [0, 1] using this formula $X'=(X - X_min) #over(X_max - X_min)$.
+Change the range of the characteristic value to [0, 1] using this formula $X'=\frac{X - X_min}{X_max - X_min}$.
