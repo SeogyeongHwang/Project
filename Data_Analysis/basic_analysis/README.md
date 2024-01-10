@@ -12,12 +12,15 @@ Five-number summary is a method of presenting data with five statistics: the min
 
 The average or standard deviation commonly used to produce statistics is more likely to convey distorted meaning if there is an outlier in the data, so it is useful to use the box plot to easily determine how many outliers are included and also easy to compare between datasets.
 
+## Method
+
+- .min(), .max() : To get the minimum and the maximum values between data
+- .plot(kind:'box') : plot data as a box plot
+
 ### Normalization Box Plot
 
 Change the range of the characteristic value to [0, 1] using this formula $X'=\frac{X - X_min}{X_max - X_min}$.   
 The largest value converted to 1, and the smallest value to 0, allowing the characteristics to be placed in an equal position.
+You can see the result below.
 
-
-## Method
-
-- .min(), .max() : 
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/94b095b9f26ce51ad775b9eeda907ebea02cca64/Data_Analysis/basic_analysis/Plots/Data_normalization_plot.jpg)
