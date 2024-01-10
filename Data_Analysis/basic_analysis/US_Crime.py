@@ -53,7 +53,7 @@ class BasicAnalysis:
             
         data.plot(kind='box', subplots=False, sharey=False, figsize=(20,10))
         # save plot in Plots directory
-        plt.savefig('Plots\Data_normalization_plot.png')
+        plt.savefig('Plots\Data_normalization_plot.jpg')
 
         return
           
