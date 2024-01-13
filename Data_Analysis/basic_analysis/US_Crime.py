@@ -47,18 +47,20 @@ class BasicAnalysis:
     def box_plot(self):
         # load the data to a df
         data = pd.read_csv(self.csv_data)
+        # copy the data to normalize
+        normalization = data.copy()
         
         # normalize data
-        self.normalize_data(data)
-        
-        #save new data to csv file
-        data.to_csv(self.normalized_data)
+        self.normalize_data(normalization)
+
+        # save new data to csv file
+        normalization.to_csv(self.normalized_data)
         
         # make folder to put plots
         if not os.path.exists("Plots"):
             os.mkdir("Plots")
             
-        data.plot(kind='box', subplots=False, sharey=False, figsize=(20,10))
+        normalization.plot(kind='box', subplots=False, sharey=False, figsize=(20,10))
         # save plot in Plots directory
         plt.savefig('Plots\Data_normalization_plot.jpg')
 
