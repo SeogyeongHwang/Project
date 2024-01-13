@@ -39,21 +39,20 @@ class BasicAnalysis:
             
         return
     
-    def normalize_data(self):
-        # load the data to a df
-        df = pd.read_csv(self.csv_data)
-        
-        for column in df.columns:
-            df[column] = (df[column]-df[column].min())/(df[column].max()-df[column].min()) 
-        
-        # save data to a new csv file
-        df.to_csv(self.normalized_data, index=False)
-        
+    def normalize_data(self, data):       
+        for column in data.columns:
+            data[column] = (data[column]-data[column].min())/(data[column].max()-data[column].min()) 
         return
         
     def box_plot(self):
         # load the data to a df
-        data = pd.read_csv(self.normalized_data)
+        data = pd.read_csv(self.csv_data)
+        
+        # normalize data
+        self.normalize_data(data)
+        
+        #save new data to csv file
+        data.to_csv(self.normalized_data)
         
         # make folder to put plots
         if not os.path.exists("Plots"):
@@ -69,5 +68,4 @@ if __name__ == "__main__":
     ba = BasicAnalysis()
     ba.download_to_csv(url)
     #ba.scatter_plot()
-    ba.normalize_data()
-    #ba.box_plot()
+    ba.box_plot()
