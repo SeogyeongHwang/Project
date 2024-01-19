@@ -2,6 +2,7 @@ import pandas as pd
 from plotnine import ggplot, aes, geom_point, stat_smooth
 import os
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # url for csv data
 url = 'http://www.statsci.org/data/general/uscrime.txt'
@@ -34,40 +35,59 @@ class BasicAnalysis:
             print(column)
             gg = (ggplot(data, aes(x= data[column], y=data.columns[-1])) + geom_point() + stat_smooth(method = 'lm'))
             plot_name = column + ".jpg"
-            #save plots in Plots directory
+            # save plots in Plots directory
             gg.save(filename = plot_name, path = "Plots")
             
         return
     
     def normalize_data(self, data):       
-        for column in data.columns:
-            data[column] = (data[column]-data[column].min())/(data[column].max()-data[column].min()) 
-        return
+
+         for column in data.columns:
+             data[column] = (data[column]-data[column].min())/(data[column].max()-data[column].min()) 
+
+         return
         
     def box_plot(self):
-        # load the data to a df
-        data = pd.read_csv(self.csv_data)
-        # copy the data to normalize
-        normalization = data.copy()
-        
-        # normalize data
-        self.normalize_data(normalization)
 
-        # save new data to csv file
-        normalization.to_csv(self.normalized_data)
-        
-        # make folder to put plots
-        if not os.path.exists("Plots"):
-            os.mkdir("Plots")
-            
-        normalization.plot(kind='box', subplots=False, sharey=False, figsize=(20,10))
-        # save plot in Plots directory
-        plt.savefig('Plots\Data_normalization_plot.jpg')
+         # load the data to a df
+         data = pd.read_csv(self.csv_data)
+         # copy the data to normalize
+         normalization = data.copy()
+         
+         # normalize data
+         self.normalize_data(normalization)
+ 
+         # save new data to csv file
+         normalization.to_csv(self.normalized_data)
+         
+         # make folder to put plots
+         if not os.path.exists("Plots"):
+             os.mkdir("Plots")
+             
+         normalization.plot(kind='box', subplots=False, sharey=False, figsize=(20,10))
+         # save plot in Plots directory
+         plt.savefig('Plots\Data_normalization_plot.jpg')
 
-        return
-          
+         return
+     
+    def heatmap_plot(self):
+         # load the data to a df
+         data = pd.read_csv(self.csv_data)
+         
+         fig, ax = plt.subplots(figsize=(15,10))
+         sns.heatmap(data = data.corr(), annot=True, cmap='RdYlBu_r')
+         
+         # make folder to put plots
+         if not os.path.exists("Plots"):
+             os.mkdir("Plots")
+         # save plots in Plots directory
+         plt.savefig('Plots\Data_heatmap_plot.jpg')
+         
+         return
+     
 if __name__ == "__main__":
     ba = BasicAnalysis()
     ba.download_to_csv(url)
     #ba.scatter_plot()
-    ba.box_plot()
+    #ba.box_plot()
+    ba.heatmap_plot()
