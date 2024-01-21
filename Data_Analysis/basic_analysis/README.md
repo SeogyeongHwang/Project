@@ -31,19 +31,25 @@ You can see the result below.
 
 Correlation refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related. We use it to determine whether there is a correlation between variables, and to determine the degree of correlation. We can also check increasing direction.   
 Correlation coefficients only exist between -1 and +1.
-+ a negative correlation
++ a negative correlation   
   + 1.0 to -0.7 : Strong negative correlation
   + 0.7 ~ -0.3 : distinct negative correlation
   + 0.3 ~ -0.1 : Weak negative correlation
 
-+ No correlation
-  +-0.1 ~ +0.1 : don't have Correlation
++ No correlation   
+  + -0.1 ~ +0.1 : don't have Correlation
 
-+ positive correlation
-  +0.1 to +0.3 : weak positive correlation
-  +0.3 ~ +0.7 : distinct positive correlation
-  +0.7 ~ +1.0 : Strong positive correlation
++ positive correlation   
+  + 0.1 to +0.3 : weak positive correlation
+  + 0.3 ~ +0.7 : distinct positive correlation
+  + 0.7 ~ +1.0 : Strong positive correlation
 
 To visualize this, we use 'heatmap' plot.
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/e08fe4e3c7f5b356ed51d7908733bde75987d660/Data_Analysis/basic_analysis/Plots/Data_heatmap_plot.jpg)
+
+### Method
+
+- plt.subplots(figsize=()) : to determine the plot size
+- sns.heatmap(data, annot=True, cmap='RdYlBu_r') : to plot as a heatmap. With annot, we can show the data value in each cell. With cmap, we can mapping data values to color space.
+- .corr() : to compute correlation of columns in dataframe
