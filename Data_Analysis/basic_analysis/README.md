@@ -32,17 +32,8 @@ You can see the result below.
 Correlation refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related. We use it to determine whether there is a correlation between variables, and to determine the degree of correlation. We can also check increasing direction.   
 Correlation coefficients only exist between -1 and +1.
 + a negative correlation   
-  + 1.0 to -0.7 : Strong negative correlation
-  + 0.7 ~ -0.3 : distinct negative correlation
-  + 0.3 ~ -0.1 : Weak negative correlation
-
 + No correlation   
-  + -0.1 ~ +0.1 : don't have Correlation
-
 + positive correlation   
-  + 0.1 to +0.3 : weak positive correlation
-  + 0.3 ~ +0.7 : distinct positive correlation
-  + 0.7 ~ +1.0 : Strong positive correlation
 
 To visualize this, we use 'heatmap' plot.
 
@@ -53,3 +44,11 @@ To visualize this, we use 'heatmap' plot.
 - plt.subplots(figsize=()) : to determine the plot size
 - sns.heatmap(data, annot=True, cmap='RdYlBu_r') : to plot as a heatmap. With annot, we can show the data value in each cell. With cmap, we can mapping data values to color space.
 - .corr() : to compute correlation of columns in dataframe
+
+
+
+# Linear Regression
+
+Regression is a way to explain the relationship between a dependent variable(Y) and one or more explanatory variables(X). Hence, linear regression is a simple approach to predict based on a data that follows a linear trend and find the 'best fit line' that gives good value nearest to that point like in above plots.   
+   
+Scatterplot can be used to explore potential relationships between pairs of variables and correlation provides a measure of the linear association between pairs of variables, but it doesn't tell us about more complex relationships like if the relationship. However, through regression, We can predict the values of a response variable based on the values of the important predictors. Or, we can use regression models for optimization, to determine settings of factors to optimize a response.
