@@ -84,10 +84,32 @@ class BasicAnalysis:
          plt.savefig('Plots\Data_heatmap_plot.jpg')
          
          return
-     
+
+    def find_missing_values(self):
+        # load the data to a df
+        data = pd.read_csv(self.csv_data)
+        
+        # make dictionary
+        keys = {}
+        values = []
+
+        for item in data.columns:
+            for i in data.index:
+                if data.isnull()[item][i] == True:
+                   values.append(i)
+                   # add key, value in a dict
+                   keys[item] = values
+            # reset list
+            values = []
+
+        print(keys)        
+       
+        return
+    
 if __name__ == "__main__":
     ba = BasicAnalysis()
     ba.download_to_csv(url)
     #ba.scatter_plot()
     #ba.box_plot()
-    ba.heatmap_plot()
+    #ba.heatmap_plot()
+    ba.find_missing_values()
