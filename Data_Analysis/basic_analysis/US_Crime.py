@@ -90,7 +90,7 @@ class BasicAnalysis:
         data = pd.read_csv(self.csv_data)
         
         # make dictionary
-        keys = {}
+        missings = {}
         values = []
 
         for item in data.columns:
@@ -98,11 +98,11 @@ class BasicAnalysis:
                 if data.isnull()[item][i] == True:
                    values.append(i)
                    # add key, value in a dict
-                   keys[item] = values
+                   missings[item] = values
             # reset list
             values = []
 
-        print(keys)        
+        print(missings)        
        
         return
     
