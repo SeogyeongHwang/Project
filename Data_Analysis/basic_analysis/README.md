@@ -59,7 +59,7 @@ Scatterplot can be used to explore potential relationships between pairs of vari
 
 Missing values can bias the results of your machine learning models and can result in decreased accuracy. That is why we must handle these values in the correct way, so that the data is imputed correctly.
 ### How to check missing values
-In pandas, missing data is represented by two values: None or NaN
+In pandas, missing data is represented by two values: None or NaN   
 There are several useful functions for detecting, removing, and replacing null values in Pandas.
 + isnull() : To check null values
 + notnull() : To check non-null values
