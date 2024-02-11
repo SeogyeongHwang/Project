@@ -52,3 +52,18 @@ To visualize this, we use 'heatmap' plot.
 Regression is a way to explain the relationship between a dependent variable(Y) and one or more explanatory variables(X). Hence, linear regression is a simple approach to predict based on a data that follows a linear trend and find the 'best fit line' that gives good value nearest to that point like in above plots.   
    
 Scatterplot can be used to explore potential relationships between pairs of variables and correlation provides a measure of the linear association between pairs of variables, but it doesn't tell us about more complex relationships like if the relationship. However, through regression, We can predict the values of a response variable based on the values of the important predictors. Or, we can use regression models for optimization, to determine settings of factors to optimize a response.
+
+
+
+# Finding missing values
+
+Missing values can bias the results of your machine learning models and can result in decreased accuracy. That is why we must handle these values in the correct way, so that the data is imputed correctly.
+### How to check missing values
+In pandas, missing data is represented by two values: None or NaN
+There are several useful functions for detecting, removing, and replacing null values in Pandas.
++ isnull() : To check null values
++ notnull() : To check non-null values
++ dropna() : To drop rows / columns with null values
++ fillna() : To replace NaN values with some value by users
++ replace() : To replace data values to other values
++ interpolate() : To fill NaN values in dataframe or series
