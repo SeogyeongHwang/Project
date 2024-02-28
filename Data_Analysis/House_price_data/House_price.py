@@ -19,23 +19,33 @@ class BasicAnalysis:
         return
     
     def download_to_csv(self, url):
-        # download column name
+        # download header
         df_header = pd.read_csv(url, sep=" ", usecols=[1], skiprows=7, nrows=14, header=None)        
         header_name = df_header[1].to_list()
 
         # download the data
         pre_df = pd.read_csv(url, skiprows=21, header=None, delimiter=r"\s+", names = header_name)
-        Even_df = pre_df[::2].reset_index(drop=True)
-        Odd_df = pre_df[1::2].reset_index(drop=True)
-        
-        df_new = pd.concat([Even_df, Odd_df], axis=1)
-        df = df_new.dropna(axis=1)
-        df.columns = header_name
+
+        # reprocess data
+        df = self.reprocessing_data(pre_df, header_name)
 
         # save dataframe to csvfile
         df.to_csv(self.csv_data, index=False)
 
         return
+
+    def reprocessing_data(self, pre_df, header_name):
+        Even_df = pre_df[::2].reset_index(drop=True)
+        Odd_df = pre_df[1::2].reset_index(drop=True)
+ 
+        # merge two data
+        merge_df = pd.concat([Even_df, Odd_df], axis=1)
+        new_df = merge_df.dropna(axis=1)
+       
+        # reset header
+        new_df.columns = header_name
+        
+        return new_df
     
     def scatter_plot(self):
         # load the data to a df
@@ -117,8 +127,6 @@ class BasicAnalysis:
             values = []
 
         print(missings)        
-       
-        return
     
 if __name__ == "__main__":
     ba = BasicAnalysis()
