@@ -22,7 +22,6 @@ Seven methods were used in this code to download the data.
 #### < Correlation with per capita crime rate >
 + The closer the crime rate per capita is to 0, the higher the house price, and the higher the crime rate, the lower the house price is.
 
-   
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/ZN.jpg)
 #### < Correlation with proportion of residential land in a specific section >
 + This graph tend to go up.
@@ -39,7 +38,7 @@ Seven methods were used in this code to download the data.
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/RM.jpg)
 #### < Correlation with average number of rooms per dwelling >
-+ It is increasing rapidly than other columns.
++ It is increasing sharply than other columns.
 + There are many similar y-values between 5 and 7 with x values.
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/AGE.jpg)
@@ -49,4 +48,33 @@ Seven methods were used in this code to download the data.
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/DIS.jpg)
 #### < Correlation with distance to five Boston employment centres >
-+ 
++ There's been a slip in housing price while x value goes up. 
++ When x value is the smallest, y-value has maximum and minimum value.
+
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/RAD.jpg)
+#### < Correlation with accessibility of radial highways >
++ The graph is decreasing slightly.
++ Each x-values have many different range of y-values.
+
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/TAX.jpg)
+#### < Correlation with full-value property-tax rate per $10,000 >
++ It shows a downard trend.
++ When the x value is less than 500, the y value is located in the range of high values.
+
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/PTRATIO.jpg)
+#### < Correlation with pupil-teacher ratio >
++ Y-value has the smallest value when x-value is around 20.
++ The slope of the graph is negative.
+
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/B.jpg)
+#### < Correlation with Proportion of population that is black >
++ The graph is showing a trend of going up.
++ When x-value is around 400, it has maximum and minimum y-value.
+
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/LSTAT.jpg)
+#### < Correlation with proportion of population that is lower status >
++ This graph has sharply decreasing slope.
++ When x-value is under 10, it has the highest y-value.
+
+## 4. Conclusion
+
