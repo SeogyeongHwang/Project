@@ -19,7 +19,6 @@ Seven methods were used in this code to download the data.
 ## 3. Result
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/CRIM.jpg)
-
 #### < Correlation with per capita crime rate >
 + The closer the crime rate per capita is to 0, the higher the house price, and the higher the crime rate, the lower the house price is.
 
