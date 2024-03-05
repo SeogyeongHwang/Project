@@ -16,6 +16,7 @@ class BasicAnalysis:
     def __init__(self):
         self.csv_data = 'data.csv'
         self.normalized_data = 'normlized_data.csv'
+        
         return
     
     def download_to_csv(self, url):
@@ -65,14 +66,12 @@ class BasicAnalysis:
         return
     
     def normalize_data(self, data):       
-
          for column in data.columns:
              data[column] = (data[column]-data[column].min())/(data[column].max()-data[column].min()) 
 
          return
-        
-    def box_plot(self):
 
+    def box_plot(self):
          # load the data to a df
          data = pd.read_csv(self.csv_data)
          # copy the data to normalize
@@ -80,7 +79,7 @@ class BasicAnalysis:
          
          # normalize data
          self.normalize_data(normalization)
- 
+         
          # save new data to csv file
          normalization.to_csv(self.normalized_data)
          
@@ -91,8 +90,23 @@ class BasicAnalysis:
          normalization.plot(kind='box', subplots=False, sharey=False, figsize=(20,10))
          # save plot in Plots directory
          plt.savefig('Plots\Data_normalization_plot.jpg')
-
+         
          return
+     
+    def bivariate_boxplot(self):
+        # load the data to a df
+        data = pd.read_csv(self.csv_data)
+        # set path to put plots
+        os.chdir("Plots")
+        
+        col = ['CHAS', 'RAD']
+
+        for column in col:        
+            sns.boxplot(x=column, y=data.columns[-1], data=data)
+            # save plot
+            plt.savefig(column +'.jpg')        
+            
+        return
      
     def heatmap_plot(self):
          # load the data to a df
@@ -131,7 +145,8 @@ class BasicAnalysis:
 if __name__ == "__main__":
     ba = BasicAnalysis()
     ba.download_to_csv(url)
-    ba.scatter_plot()
-    ba.box_plot()
-    ba.heatmap_plot()
-    ba.find_missing_values()
+    #ba.scatter_plot()
+    #ba.box_plot()
+    ba.bivariate_boxplot()
+    #ba.heatmap_plot()
+    #ba.find_missing_values()
