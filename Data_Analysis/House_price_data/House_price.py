@@ -96,15 +96,17 @@ class BasicAnalysis:
     def bivariate_boxplot(self):
         # load the data to a df
         data = pd.read_csv(self.csv_data)
-        # set path to put plots
-        os.chdir("Plots")
+        
+        # make folder to put plots
+        if not os.path.exists("Plots"):
+            os.mkdir("Plots")
         
         col = ['CHAS', 'RAD']
 
         for column in col:        
             sns.boxplot(x=column, y=data.columns[-1], data=data)
             # save plot
-            plt.savefig(column +'.jpg')        
+            plt.savefig('Plots\\bivariate_boxplot_'+column +'.jpg')        
             
         return
      
@@ -145,8 +147,8 @@ class BasicAnalysis:
 if __name__ == "__main__":
     ba = BasicAnalysis()
     ba.download_to_csv(url)
-    #ba.scatter_plot()
-    #ba.box_plot()
+    ba.scatter_plot()
+    ba.box_plot()
     ba.bivariate_boxplot()
-    #ba.heatmap_plot()
-    #ba.find_missing_values()
+    ba.heatmap_plot()
+    ba.find_missing_values()
