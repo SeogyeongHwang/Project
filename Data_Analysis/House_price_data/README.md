@@ -52,6 +52,7 @@ Since the data is spread differently, it is difficult to see data that are not n
    <img src="https://github.com/SeogyeongHwang/Project/blob/b82419361da60d6379e486a4e7d59090137ffe72/Data_Analysis/House_price_data/Plots/bivariate_boxplot_CHAS.jpg" width="49%" height="49%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/b82419361da60d6379e486a4e7d59090137ffe72/Data_Analysis/House_price_data/Plots/bivariate_boxplot_RAD.jpg" width="49%" height="49%">
    </p>
+
 #### < Bivariate Box Plot >
 These columns are not invisible to obtain meaningful information from scatter plot.
 + The column 'CHAS' value is 1 if tract bounds river, otherwise it has 0. Overall, the distribution of house prices is higher when the 'CHAS' value is 1 than when the value is 0. 
