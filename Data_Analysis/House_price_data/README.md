@@ -29,8 +29,8 @@ Since the data is spread differently, it is difficult to see data that are not n
 
 #### < Correlation between two data >
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/CRIM.jpg" width="33%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/AGE.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/B.jpg.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/DIS.jpg" width="33%" height="33%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/RM.jpg" width="33%" height="33%">
    </p>
 
