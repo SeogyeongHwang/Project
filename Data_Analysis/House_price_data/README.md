@@ -27,7 +27,7 @@ Since the data is spread differently, it is difficult to see data that are not n
 + In contrast, 'INDUS', 'NOX', 'AGE', 'RAD', 'TAX' are widely distributed and have no outliers.
 + Through this graph, 'CHAS' column is hard to get information because it shows that this data composed of only two different values.
 
-#### < Correlation between two data >
+#### < Correlation between two data using scatter plot >
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/a9f503a28c40ca765ae6497001d2a39a74609566/Data_Analysis/House_price_data/Plots/B.jpg" width="33%" height="33%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/DIS.jpg" width="33%" height="33%">
@@ -52,7 +52,7 @@ Since the data is spread differently, it is difficult to see data that are not n
    <img src="https://github.com/SeogyeongHwang/Project/blob/b82419361da60d6379e486a4e7d59090137ffe72/Data_Analysis/House_price_data/Plots/bivariate_boxplot_CHAS.jpg" width="49%" height="49%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/b82419361da60d6379e486a4e7d59090137ffe72/Data_Analysis/House_price_data/Plots/bivariate_boxplot_RAD.jpg" width="49%" height="49%">
    </p>
-
+#### < Bivariate Box Plot >
 These columns are not invisible to obtain meaningful information from scatter plot.
 + The column 'CHAS' value is 1 if tract bounds river, otherwise it has 0. Overall, the distribution of house prices is higher when the 'CHAS' value is 1 than when the value is 0. 
 + When the index of accessibility to radial highways has highest value, it generally shows low house price.
