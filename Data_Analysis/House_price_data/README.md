@@ -22,17 +22,30 @@ Before plotting the data, we can see that there was no missing value in the data
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/d111795bfb28579892a0ac0df41e8bbcfc104b6c/Data_Analysis/House_price_data/Plots/Data_normalization_plot.jpg)
 #### < Normalization data Box Plot >
-+ Since the data is spread differently, it is difficult to see data that are not normalized together.
-+ We can see the distribution of each variable from this image.
+Since the data is spread differently, it is difficult to see data that are not normalized together. We can see the distribution of each variable from this image.
 + 'CRIM' has a very low distribution, so it can be seen that most of them are close to zero and there are outliers up there.
 + In contrast, 'INDUS', 'NOX', 'AGE', 'RAD', 'TAX' are widely distributed and have no outliers.
 + Through this graph, 'CHAS' column is hard to get information because it shows that this data composed of only two different values.
 
+#### < Correlation between two data >
+<p float="left">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/CRIM.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/AGE.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/RM.jpg" width="33%" height="33%">
+   </p>
 
-
-![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/CRIM.jpg)
-#### < Correlation with per capita crime rate >
 + The closer the crime rate per capita is to 0, the higher the house price, and the higher the crime rate, the lower the house price is.
+
++ As the x value increases, the y value tends to decrease.
++ When x value is 100, it has both minimum and maximum values.
+
+
++ It is increasing sharply than other columns.
++ There are many similar y-values between 5 and 7 with x values.
+
+
+
+
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/ZN.jpg)
 #### < Correlation with proportion of residential land in a specific section >
