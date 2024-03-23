@@ -147,8 +147,8 @@ class BasicAnalysis:
 if __name__ == "__main__":
     ba = BasicAnalysis()
     ba.download_to_csv(url)
-    ba.scatter_plot()
-    ba.box_plot()
+    #ba.scatter_plot()
+    #ba.box_plot()
     ba.bivariate_boxplot()
-    ba.heatmap_plot()
+    #ba.heatmap_plot()
     ba.find_missing_values()
