@@ -1,4 +1,4 @@
-# Analysis of Boston Housing Price data
+# Analysis of University Admission data
 
 ## 1. Introduction
 
