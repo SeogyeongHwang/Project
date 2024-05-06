@@ -1,0 +1,16 @@
+ Results for 2024-04-09 09:22:20.213200
+
+
+ method= bisection_method , f(x) = (x - 1) * (x - 2) * (x - 3)
+	 Searching in this range: [0,1.5]
+	 estimated root= 1.00048828125 , iterations= 10 , error= 0.00048828125
+
+
+ method= newtonRaphson_method , f(x) = (x - 1) * (x - 2) * (x - 3)
+	 initial value, x0 = 0
+	 estimated root= 0.9999987646910548 , iterations= 5 , error= 1.2353089452465937e-06
+
+
+ method= fixedPointIteration_method , f(x) = (x - 1) * (x - 2) * (x - 3)
+	 initial value, x0 = 0
+	 estimated root= 0.9957933296597641 , iterations= 20 , error= 0.0042066703402359185
