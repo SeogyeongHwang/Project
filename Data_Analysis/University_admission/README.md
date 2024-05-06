@@ -1,4 +1,4 @@
-# Analysis of Boston Housing Price data
+# Analysis of University Admission data
 
 ## 1. Introduction
 
@@ -20,7 +20,7 @@ Seven methods were used in this code to download the data.
 
 Before plotting the data, we can see that there was no missing value in the dataframe through 'Finding_missing_values' function.
 
-![Alt_text](https://github.com/SeogyeongHwang/Project/blob/d111795bfb28579892a0ac0df41e8bbcfc104b6c/Data_Analysis/House_price_data/Plots/Data_normalization_plot.jpg)
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/7516d169556d2766652a1fe2fd586b9de196a166/Data_Analysis/University_admission/Plots/Data_normalization_plot.jpg)
 #### < Normalization data Box Plot >
 Since the data is spread differently, it is difficult to see data that are not normalized together. We can see the distribution of each variable from this image.
 + 'CRIM' has a very low distribution, so it can be seen that most of them are close to zero and there are outliers up there.
