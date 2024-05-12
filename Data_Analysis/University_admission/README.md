@@ -2,19 +2,19 @@
 
 ## 1. Introduction
 
-In this project, we will develop and evaluate the performance and prediction of data with multiple plots. The dataset contains these following items: 'CRIM: per capita crime rate by town', 'ZN: proportion of residential land zoned for lots over 25,000 sq.ft.', 'INDUS: proportion of non-retail business acres per town', 'CHAS: Charles River dummy variable(= 1 if tract bounds river; 0 otherwise)', 'NOX: nitric oxides concentration (parts per 10 million)', 'RM: average number of rooms per dwelling', 'AGE: proportion of owner-occupied units built prior to 1940', 'DIS: weighted distances to five Boston employment centres', 'RAD: index of accessibility to radial highways', 'TAX: full-value property-tax rate per $10,000', 'PTRATIO: pupil-teacher ratio by town', 'B: 1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town', 'LSTAT: % lower status of the population'. In this report, we will see how each column affects the Boston housing price based on the 'MEDV(median value of owner-occupied homes in $1000's)' column and see what affects the housing price the most.
+In this project, we will analyze the given data for Admission in the University and predict the probability of the admission of the student in particular university based on various parameters. The different entities or parameters in the dataset are 'Serial No: To uniquely identify students', 'GRE Score: Score of GRE test which is an important test for admission in the graduate school or business school application process globally', 'TOEFL Score: Test of English as a Foreign Language exam score', 'University Rating: Rating of the University out of 5', 'SOP: Related to Statement of Purpose(SOP) for applying to a particular course or university', 'LOR: Some score related to LOR i.e a letter of recommendation', 'CGPA: CGPA is a past performance measure of a aspirant', 'Chance of admit: Probability of the student to get admission the university'.
 
 ## 2. Method
 
 Seven methods were used in this code to download the data.
 
-      1) pd.read_csv() : To read csv file into dataframe. The default delimiter is ',' but can be used interchangeably.
-      2) to_list() : To change the values of a particular column into a list.
-      3) df[::2] or df[1::2] : To extract even or odd rows from dataframe.
-      4) reset_index(drop=True) : To reset index.
-      5) pd.concat([df1, df2], axis=1) : To concat two dataframe. Depending on whether axis is 0 or 1, you can choose which direction to combine the data between rows and columns.
-      6) dropna(axis=1) : To remove columns that have NaN values
-      7) to_csv() : To make dataframe as a csv file
+      1) pd.read_csv() : To read csv file into dataframe. The default delimiter is ',' but can be used interchangeably. I switched to '\t'.
+      2) to_csv() : To make dataframe as a csv file.
+      3) os.path.exists() :  To check whether the directory or file exists or not
+      4) os.mkdir() : To create a directory.
+      5) ggplot() : To plot data.
+             For the graph type, I added geom_point() to create scatter plots with stat_smooth(method = lm) to display the results with linear model.
+      6) ggsave() : To save a ggplot with sensible defaults.
 
 ## 3. Result
 
