@@ -35,19 +35,19 @@ Before plotting the data, we can see that there was no missing value in the data
    <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/CGPA.jpg" width="32.5%" height="33%">
    </p>
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/LOR%20.jpg" width="33%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/SOP.jpg" width="33%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/University%20Rating.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/LOR%20.jpg" width="32.5%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/SOP.jpg" width="32.5%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/8004ebb9b86cd610ae0635338cf623164a223159/Data_Analysis/University_admission/Plots/Chance%20of%20Admit%20.jpg" width="32.5%" height="33%">
    </p>
 
-+ All three graphs have a positive slope.
++ All six graphs have a positive slope.
 + When proportion of population that is black is high, the values are variously distributed.
 + We can see if the distance from the employment centres is shorter, the price of the house could be very high and very low. In addition, very high priced houses are distributed where the value of 'DIS' is under 6.
 + THe more rooms there are, the price also go up. But when the number of rooms are around 6, have many median values.
 
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/AGE.jpg" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/cbf880b5416d0da660f9335514ae69f181a22601/Data_Analysis/House_price_data/Plots/LSTAT.jpg" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/8004ebb9b86cd610ae0635338cf623164a223159/Data_Analysis/University_admission/Plots/University%20Rating.jpg" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/8004ebb9b86cd610ae0635338cf623164a223159/Data_Analysis/University_admission/Plots/bivariate_boxplot_University%20Rating.jpg" width="49%" height="49%">
    </p>
 
 + These are graphs have a negative slope.
@@ -55,9 +55,7 @@ Before plotting the data, we can see that there was no missing value in the data
 + Proportion of population that is lower status is less than 10, it has the highest house price.
 
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/b82419361da60d6379e486a4e7d59090137ffe72/Data_Analysis/House_price_data/Plots/bivariate_boxplot_CHAS.jpg" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/b82419361da60d6379e486a4e7d59090137ffe72/Data_Analysis/House_price_data/Plots/bivariate_boxplot_RAD.jpg" width="49%" height="49%">
-   </p>
+
 
 #### < Bivariate Box Plot >
 These columns are not invisible to obtain meaningful information from scatter plot.
