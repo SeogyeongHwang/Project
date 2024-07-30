@@ -32,7 +32,7 @@ Before plotting the data, we can see that there was no missing value in the data
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/GRE%20Score.jpg" width="33%" height="33%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/TOEFL%20Score.jpg" width="33%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/CGPA.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/CGPA.jpg" width="32%" height="33%">
    </p>
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/LOR%20.jpg" width="33%" height="33%">
