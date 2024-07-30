@@ -23,6 +23,7 @@ Before plotting the data, we can see that there was no missing value in the data
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/Data_normalization_plot.jpg)
 #### < Normalization data Box Plot >
+This box plot graph provids a clear overview of the central tendencies and variability of each variable relevant to university admissions.
 + Most variables have a median around 0.6.
 + There are a few outliers, particularly in the CGPA and Chance of Admit, LOR.
 + In contrast, 'GRE Score', 'TOEFL Score', 'University Rating', 'SOP' are widely distributed and have no outliers.
@@ -37,42 +38,29 @@ Before plotting the data, we can see that there was no missing value in the data
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/LOR%20.jpg" width="32.5%" height="33%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/SOP.jpg" width="32.5%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/8004ebb9b86cd610ae0635338cf623164a223159/Data_Analysis/University_admission/Plots/Chance%20of%20Admit%20.jpg" width="32.5%" height="33%">
    </p>
+These scatter plots with regression lines visualize the relationship between various factors and 'Chance of Admit'.
++ All five graphs have a positive slope.
++ 'CGPA' appears to have the strongest correlation with chance of admission.
++ From the graph, we can get the information that every each factors increase, the chance of admission generally increases.
++ 'LOR', 'SOP' have only 9 values to show from the graph. And these have some variability, but the genera trend is upward.
 
-+ All six graphs have a positive slope.
-+ When proportion of population that is black is high, the values are variously distributed.
-+ We can see if the distance from the employment centres is shorter, the price of the house could be very high and very low. In addition, very high priced houses are distributed where the value of 'DIS' is under 6.
-+ THe more rooms there are, the price also go up. But when the number of rooms are around 6, have many median values.
 
+#### < Bivariate Box Plot >
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/8004ebb9b86cd610ae0635338cf623164a223159/Data_Analysis/University_admission/Plots/University%20Rating.jpg" width="49%" height="49%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/8004ebb9b86cd610ae0635338cf623164a223159/Data_Analysis/University_admission/Plots/bivariate_boxplot_University%20Rating.jpg" width="49%" height="49%">
    </p>
+   
+From scatter plot, we can see individual data points and their dispersion, while the box plot provides a summary of the distribution, median. and variability. 
+'University of Rating' column only have 5 values to see, so we show scatter plot and box plot as well to see more details.
++ This plots also show a positive correlation between the University Rating and the Chance of Admit.
++ There are several outliers at each rating level, particularly at the lower ratings(1 and 2) showing some applicants with very low chances of admit despite the university rating.
++ Fewer outliers are present at higher ratings(4 and 5), suggesting a stronger consistency in higher chances of admit.
 
-+ These are graphs have a negative slope.
-+ It can be seen that expensive houses are distributed from new houses to very old houses, but the correlation does not seem to be significant until 50 years, while later houses are relatively inexpensive.
-+ Proportion of population that is lower status is less than 10, it has the highest house price.
-
-<p float="left">
-
-
-#### < Bivariate Box Plot >
-These columns are not invisible to obtain meaningful information from scatter plot.
-+ The column 'CHAS' value is 1 if tract bounds river, otherwise it has 0. Overall, the distribution of house prices is higher when the 'CHAS' value is 1 than when the value is 0. 
-+ When the index of accessibility to radial highways has highest value, it generally shows low house price.
    
 ## 4. Conclusion
 
-From the above results, we can draw the following conclusions. In the beginning, I expected that these following items would affect the house price a lot: crime rate, room numbers, how old the house is, distance from the employment centres. I cannot say that these conclusions are exact statistics, because There may be various reasons why the x value is low or high in plotting the values. One-dimensional reasoning can be made that if a house is old, the price will fall, but for example, 50 years ago, preference may decrease because of the use of harmful ingredients when building a house, or because the perception of the neighborhood (crime rate, etc.) is poor over time. Therefore, if we just look at the reformulation of the graph and draw the conclusion, we can get these result.
+From the above results, we can draw the following conclusions. In the beginning, through my experience in university entry examinations, I knew the results already that every factors are important. I cannot say that these conclusions are exact statistics, because There may be various reasons why the x value is low or high in plotting the values. Every above graphs are showing that if factors (GRE Score, TOEFL Score, CGPA, LOR, SOP, University Rating) goes high, chance of admit is going up and that means my expectation was right. Therefore, if we just look at the reformulation of the graph and draw the conclusion, we can get these result.
 As we can see from the graphs, the house price is high, when…
-+ the crime rate is low.
-+ proportion of residential land zoned has high value.
-+ proportion of non-retail business is less.
-+ nitric oxides concentration is low.
-+ it has more rooms.
-+ the more recent the house was made.
-+ the full-value tax rate is lower.
-+ pupil-teacher ratio has smaller value.
-+ proportion of blacks is high.
-+ the lower status of the population is less.
++ every factors(GRE Score, TOEFL Score, CGPA, LOR, SOP, University Rating) are high.
