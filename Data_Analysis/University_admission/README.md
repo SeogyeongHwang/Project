@@ -15,23 +15,27 @@ Seven methods were used in this code to download the data.
       5) ggplot() : To plot data.
              For the graph type, I added geom_point() to create scatter plots with stat_smooth(method = lm) to display the results with linear model.
       6) ggsave() : To save a ggplot with sensible defaults.
+      7) isnull() : To check null in the list
 
 ## 3. Result
 
 Before plotting the data, we can see that there was no missing value in the dataframe through 'Finding_missing_values' function.
 
-![Alt_text](https://github.com/SeogyeongHwang/Project/blob/7516d169556d2766652a1fe2fd586b9de196a166/Data_Analysis/University_admission/Plots/Data_normalization_plot.jpg)
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/Data_normalization_plot.jpg)
 #### < Normalization data Box Plot >
-Since the data is spread differently, it is difficult to see data that are not normalized together. We can see the distribution of each variable from this image.
-+ 'CRIM' has a very low distribution, so it can be seen that most of them are close to zero and there are outliers up there.
-+ In contrast, 'INDUS', 'NOX', 'AGE', 'RAD', 'TAX' are widely distributed and have no outliers.
-+ Through this graph, 'CHAS' column is hard to get information because it shows that this data composed of only two different values.
++ Most variables have a median around 0.6.
++ There are a few outliers, particularly in the CGPA and Chance of Admit, LOR.
++ In contrast, 'GRE Score', 'TOEFL Score', 'University Rating', 'SOP' are widely distributed and have no outliers.
++ Through this graph, 'University Rating' column is hard to get information because it shows that this data composed of only five different values.
 
 #### < Correlation between two data using scatter plot >
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/a9f503a28c40ca765ae6497001d2a39a74609566/Data_Analysis/House_price_data/Plots/B.jpg" width="33%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/DIS.jpg" width="33%" height="33%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/5954d8907f8abf7766e871f20e0436d6cb2d7231/Data_Analysis/House_price_data/Plots/RM.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/GRE%20Score.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/TOEFL%20Score.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/CGPA.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/LOR%20.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/SOP.jpg" width="33%" height="33%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bda21fd2263898710ac970d95254807b052177db/Data_Analysis/University_admission/Plots/University%20Rating.jpg" width="33%" height="33%">
    </p>
 
 + All three graphs have a positive slope.
