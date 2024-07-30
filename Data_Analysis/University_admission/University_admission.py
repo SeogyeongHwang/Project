@@ -27,7 +27,7 @@ class BasicAnalysis:
         if not os.path.exists("Plots"):
             os.mkdir("Plots")
         
-        for column in data.iloc[:, :-1].columns:
+        for column in data.iloc[:, 1:].columns:
             print(column)
             gg = (ggplot(data, aes(x= data[column], y=data.columns[-1])) + geom_point() + stat_smooth(method = 'lm'))
             plot_name = column + ".jpg"
@@ -48,7 +48,7 @@ class BasicAnalysis:
          # load the data to a df
          data = pd.read_csv(self.csv_data)
          # copy the data to normalize
-         normalization = data.copy()
+         normalization = data.copy().iloc[:, 1:]
          
          # normalize data
          self.normalize_data(normalization)
@@ -86,9 +86,9 @@ class BasicAnalysis:
     def heatmap_plot(self):
          # load the data to a df
          data = pd.read_csv(self.csv_data)
-         
+         new_data = data.iloc[:, 1:]
          fig, ax = plt.subplots(figsize=(15,10))
-         sns.heatmap(data = data.corr(), annot=True, cmap='RdYlBu_r')
+         sns.heatmap(data = new_data.corr(), annot=True, cmap='RdYlBu_r')
          
          # make folder to put plots
          if not os.path.exists("Plots"):
