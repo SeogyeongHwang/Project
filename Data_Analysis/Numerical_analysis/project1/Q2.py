@@ -46,9 +46,9 @@ class RootEstimator:
         plt.grid()
         plt.show()
         
-        if not os.path.exists("Q1"):
-            os.makedirs("Q1")
-        path = os.path.join("Q1", "Plot_f(x)=(x-%s)(x-%s)(x-%s)" %(self.a, self.b, self.c))
+        if not os.path.exists("Q2_Results"):
+            os.makedirs("Q2_Results")
+        path = os.path.join("Results", "Plot_f(x)=(x-%s)(x-%s)(x-%s)" %(self.a, self.b, self.c))
         fig.savefig(path)
         plt.close()
 
@@ -57,7 +57,6 @@ class RootEstimator:
     def bisection_method(self, xl, xu, f):       
         n_i = 0
         if self.f(xl) * self.f(xu) >= 0:
-            #print("There's no roots")
             f.write("There's no roots\n")
             return
 
@@ -79,7 +78,6 @@ class RootEstimator:
 
         
             f.write(f'n = {n_i} --> xl : {xl:.4f}, xu: {xu:.4f}, xr: {(xl + xu) / 2:4f}, Ea: {Ea:4f}%, error: {Et:.4f}%\n')
-            #print(f'n = {n_i} --> xl : {xl:.4f}, xu: {xu:.4f}, xr: {(xl + xu) / 2:4f}, Ea: {Ea:4f}%, error: {Et:.4f}%')
 
         return
 
@@ -102,18 +100,18 @@ class RootEstimator:
         Et = np.abs((x_new - x_old) / x_new) * 100
         ratio = Et / prev_Et
         f.write(f'n = {n_i} --> result : {x_new:.4f}, error:{Et:.4f}, ratio = {ratio:.4f}\n')
-        #print(f'n = {n_i} --> result : {x_new:.4f}, error:{Et:.4f}, ratio = {ratio:.4f}')
         prev_Et = Et
         x_old = x_new
 
         plt.plot(x_new, self.g(x_new), 'm.')
+        
       ax.set_title(title, fontsize = 16)
       ax.set_xlabel('x', fontsize = 16)
       ax.set_ylabel('f(x)', fontsize = 16)
       ax.axhline(y=0, color='k')
       ax.axvline(x=0, color='k')
       plt.grid()
-      path = os.path.join("Q1", "Plot_fixedPointIteration_result")
+      path = os.path.join("Q2_Results", "Plot_fixedPointIteration_result_f(x)=(x-%s)(x-%s)(x-%s)" %(self.a, self.b, self.c))
       fig.savefig(path)
       plt.show()
 
@@ -138,14 +136,14 @@ class RootEstimator:
 
             Et = np.abs((x_new - x_old) / x_new) * 100
             f.write(f'n = {n_i}, x_new = {x_new:.4f}, Error: {Et :4f}\n')
-            #print(f'n = {n_i}, x_new = {x_new:.4f}, Error: {Et :4f}')
             x_old = x_new
+            
         ax.set_title(title, fontsize = 16)
         ax.set_xlabel('x', fontsize = 16)
         ax.set_ylabel('f(x)', fontsize = 16)
         ax.axhline(y=0, color='k')
         ax.axvline(x=0, color='k')
-        path = os.path.join("Q1", "Plot_newtonRaphson_result")
+        path = os.path.join("Q2_Results", "Plot_newtonRaphson_result_f(x)=(x-%s)(x-%s)(x-%s)" %(self.a, self.b, self.c))
         fig.savefig(path)
         plt.show()
 
@@ -160,28 +158,51 @@ if __name__ == "__main__":
     re = RootEstimator(a, b, c)
     re.plot_f_x()
     # bisection_method
-    path = os.path.join("Q1", "bisection_results.txt")
+    path = os.path.join("Q2_Results", "bisection_results.txt")
     with open(path, 'w') as f:
         f.write(" Results for %s\n\n" % datetime.now())
-        f.write("< Results for Bisction Method >\n\n")
+        f.write("< Results for Bisction Method >\n")
+        f.write(f'f(x)=(x-{a})(x-{b})(x-{c})\n\n')
         re.bisection_method(xl, xu, f)
     # fixedPointIteration_method
-    path = os.path.join("Q1", "fixedPointIteration_results.txt")
+    path = os.path.join("Q2_Results", "fixedPointIteration_results.txt")
     with open(path, 'w') as f:
         f.write(" Results for %s\n\n" % datetime.now())
-        f.write("< Results for fixedPointIteration Method >\n\n")
+        f.write("< Results for fixedPointIteration Method >\n")
+        f.write(f'f(x)=(x-{a})(x-{b})(x-{c})\n\n')
         re.fixedPointIteration_method(xl, f)
     # newtonRaphson_method
-    path = os.path.join("Q1", "newtonRaphson_results.txt")
+    path = os.path.join("Q2_Results", "newtonRaphson_results.txt")
     with open(path, 'w') as f:
         f.write(" Results for %s\n\n" % datetime.now())
-        f.write("< Results for newtonRaphson Method >\n\n")
+        f.write("< Results for newtonRaphson Method >\n")
+        f.write(f'f(x)=(x-{a})(x-{b})(x-{c})\n\n')
         re.newtonRaphson_method(xl, f)
         
-    # 2 - 2
-    print("\n< bisection method >\n")
- #   re.bisection_method(xl, xu)
-    print("\n< Simple fixed-point iteration method >\n")
- #   re.fixedPointIteration_method(xl)
-    print("\n< Newton-Raphson method >\n")
- #   re.newtonRaphson_method(xl)
+    # 2 - 3
+    a, b, c = 1, 20, 21
+    xl = 0
+    xu = 1.5
+    re = RootEstimator(a, b, c)
+    re.plot_f_x()
+    # bisection_method 
+    path = os.path.join("Q2_Results", "bisection_results(2).txt")
+    with open(path, 'w') as f:
+        f.write(" Results for %s\n\n" % datetime.now())
+        f.write("< Results for Bisction Method >\n")
+        f.write(f'f(x)=(x-{a})(x-{b})(x-{c})\n\n')
+        re.bisection_method(xl, xu, f)
+    # fixedPointIteration_method
+    path = os.path.join("Q2_Results", "fixedPointIteration_results(2).txt")
+    with open(path, 'w') as f:
+        f.write(" Results for %s\n\n" % datetime.now())
+        f.write("< Results for fixedPointIteration Method >\n")
+        f.write(f'f(x)=(x-{a})(x-{b})(x-{c})\n\n')
+        re.fixedPointIteration_method(xl, f)
+    # newtonRaphson_method
+    path = os.path.join("Q2_Results", "newtonRaphson_results(2).txt")
+    with open(path, 'w') as f:
+        f.write(" Results for %s\n\n" % datetime.now())
+        f.write("< Results for newtonRaphson Method >\n")
+        f.write(f'f(x)=(x-{a})(x-{b})(x-{c})\n\n')
+        re.newtonRaphson_method(xl, f)
