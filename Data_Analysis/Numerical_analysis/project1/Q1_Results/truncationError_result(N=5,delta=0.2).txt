@@ -1,0 +1,11 @@
+ Results for 2024-08-13 20:30:37.353544
+
+< Results for truncation error >
+degree = 5, delta = 0.2
+
+N = 0 --> result : 0.6621, error : 32.4172%
+N = 1 --> result : 0.5122, error : 2.4401%
+N = 2 --> result : 0.4990, error : 0.2083%
+N = 3 --> result : 0.5000, error : 0.0084%
+N = 4 --> result : 0.5000, error : 0.0004%
+N = 5 --> result : 0.5000, error : 0.0000%

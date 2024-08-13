@@ -40,7 +40,7 @@ class SinTaylorSeries:
 
         return
 
-    def plot(self, delta):
+    def plot(self, delta, N):
         title = "Plot Taylor Series Result" 
         fig, ax = plt.subplots(figsize=(8, 8))
         x = np.linspace(-np.pi/2, np.pi/2, 1000)
@@ -63,7 +63,7 @@ class SinTaylorSeries:
         ax.axhline(y=0, color='k')
         ax.axvline(x=0, color='k')
         plt.grid()
-        path = os.path.join("Q1_Results", "Plot_taylorSeries_result")
+        path = os.path.join("Q1_Results", f'Plot_taylorSeries_result(N={N},delta={delta}).png')
         fig.savefig(path)
         plt.show()
 
@@ -77,10 +77,10 @@ if __name__ == "__main__":
     delta = 0.3
     # Test the function for sin(x) near pi/6 with N = 7
     x = np.pi / 6 + delta # Choose a point near pi/6
-    N = 7  # Degree of the Taylor polynomial
+    N = 6  # Degree of the Taylor polynomial
     
     # 1 - 2
-    path = os.path.join("Q1_Results", "truncationError_results.txt")
+    path = os.path.join("Q1_Results", f'truncationError_result(N={N},delta={delta}).txt')
     with open(path, 'w') as f:
         f.write(" Results for %s\n\n" % datetime.now())
         f.write("< Results for truncation error >\n")
@@ -88,4 +88,4 @@ if __name__ == "__main__":
         q1.truncation_error(np.pi/6, delta, N, f)
 
     # 1 - 3
-    q1.plot(delta)
+    q1.plot(delta, N)
