@@ -1,0 +1,10 @@
+ Results for 2024-08-14 20:19:49.883575
+
+< Results for newtonRaphson Method >
+f(x)=(x-1)(x-20)(x-21)   when x = 16
+
+n = 1, x_new = 18.6087, Error: 14.018692
+n = 2, x_new = 19.5345, Error: 4.739330
+n = 3, x_new = 19.8946, Error: 1.810276
+n = 4, x_new = 19.9913, Error: 0.483593
+n = 5, x_new = 19.9999, Error: 0.043026

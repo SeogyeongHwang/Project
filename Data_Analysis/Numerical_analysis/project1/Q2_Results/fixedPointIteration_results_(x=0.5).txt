@@ -1,0 +1,24 @@
+ Results for 2024-08-14 20:21:14.496616
+
+< Results for fixedPointIteration Method >
+f(x)=(x-1)(x-2)(x-3)   when x = 0.5
+
+n = 1 --> result : 0.6705, error:25.4237, ratio = 0.2542
+n = 2 --> result : 0.7632, error:12.1572, ratio = 0.4782
+n = 3 --> result : 0.8228, error:7.2365, ratio = 0.5952
+n = 4 --> result : 0.8641, error:4.7788, ratio = 0.6604
+n = 5 --> result : 0.8941, error:3.3533, ratio = 0.7017
+n = 6 --> result : 0.9165, error:2.4476, ratio = 0.7299
+n = 7 --> result : 0.9336, error:1.8357, ratio = 0.7500
+n = 8 --> result : 0.9469, error:1.4041, ratio = 0.7649
+n = 9 --> result : 0.9574, error:1.0897, ratio = 0.7761
+n = 10 --> result : 0.9656, error:0.8551, ratio = 0.7847
+n = 11 --> result : 0.9722, error:0.6767, ratio = 0.7914
+n = 12 --> result : 0.9775, error:0.5391, ratio = 0.7966
+n = 13 --> result : 0.9817, error:0.4317, ratio = 0.8008
+n = 14 --> result : 0.9851, error:0.3471, ratio = 0.8041
+n = 15 --> result : 0.9879, error:0.2801, ratio = 0.8068
+n = 16 --> result : 0.9901, error:0.2266, ratio = 0.8089
+n = 17 --> result : 0.9919, error:0.1837, ratio = 0.8107
+n = 18 --> result : 0.9934, error:0.1491, ratio = 0.8121
+n = 19 --> result : 0.9946, error:0.1213, ratio = 0.8132
