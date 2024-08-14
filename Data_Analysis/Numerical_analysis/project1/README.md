@@ -18,36 +18,6 @@ $$P_{N}(x) = sin(x) + cos(x)(\frac{\pi}{6}-x) - \frac{sin(x)}{2!}{(\frac{\pi}{6}
 
 #### 2) Find the approximated values for $P_N(x=\frac{\pi}{6}+\delta)$ and its errors.
 
-  (1) N = 4, $\delta$ = 0.1
-  |Order n|Result|Error|
-  |:---:|:---:|:---:|
-  |0|0.5840|16.7921%|
-  |1|0.5028|0.5564%|
-  |2|0.4999|0.0275%|
-  |3|0.5000|0.0005%|
-  |4|0.5000|0.0000%|
-
-  (2) N = 5, $\delta$ = 0.2
-  |Order n|Result|Error|
-  |:---:|:---:|:---:|
-  |0|0.6621|32.4172%|
-  |1|0..5122|2.4401%|
-  |2|0.4990|0.2083%|
-  |3|0.5000|0.0084%|
-  |4|0.5000|0.0004%|
-  |5|0.5000|0.0000%|
-
-  (3) N = 6, $\delta$ = 0.3
-  |Order n|Result|Error|
-  |:---:|:---:|:---:|
-  |0|0.7368|46.7193%|
-  |1|0.5297|5.9441%|
-  |2|0.4967|0.6583%|
-  |3|0.4998|0.0466%|
-  |4|0.5000|0.0029%|
-  |5|0.5000|0.0001%|
-  |6|0.5000|0.0000%|
-
 |N = 4, $\delta$ = 0.1|N = 5, $\delta$ = 0.2|N = 6, $\delta$ = 0.3|
 |--|--|--|
 |<table> <tr><th>Order n</th><th>Result</th><th>Error</th></tr><tr><td>0</td><td>0.5840</td><td>16.7921%</td></tr><tr><td>1</td><td>0.5028</td><td>0.5564%</td></tr><tr><td>2</td><td>0.4999</td><td>0.0275%</td></tr><tr><td>3</td><td>0.5000</td><td>0.0005%</td></tr><tr><td>4</td><td>0.5000</td><td>0.0000%</td></tr> </table>| <table> <tr><th>Order n</th><th>Result</th><th>Error</th></tr><tr><td>0</td><td>0.6621</td><td>32.4172%</td></tr><tr><td>1</td><td>0.5122</td><td>2.4401%</td></tr><tr><td>2</td><td>0.4990</td><td>0.2083%</td></tr><tr><td>3</td><td>0.5000</td><td>0.0084%</td></tr><tr><td>4</td><td>0.5000</td><td>0.0004%</td></tr><tr><td>5</td><td>0.5000</td><td>0.0000%</td></tr> </table>| <table> <tr><th>Order n</th><th>Result</th><th>Error</th></tr><tr><td>0</td><td>0.7368</td><td>46.7193%</td></tr><tr><td>1</td><td>0.5297</td><td>5.9441%</td></tr><tr><td>2</td><td>0.4967</td><td>0.6583%</td></tr><tr><td>3</td><td>0.4998</td><td>0.0466%</td></tr><tr><td>4</td><td>0.5000</td><td>0.0029%</td></tr><tr><td>5</td><td>0.5000</td><td>0.0001%</td></tr><tr><td>6</td><td>0.5000</td><td>0.0000%</td></tr> </table>|
@@ -68,9 +38,13 @@ P1 is a linear form that can predict the increase and decrease of a function bet
 
 #### 4) Compare and analyze the results.
 
-      1) Defined a class called SinTaylorSeries and created the necessary method within the class.
-      2) Defining f(x) = sin(x) in 'f' method.
-      3) The 'PN' method is defined to calculate and return the $P_{n}(x)$ sum in the sin(x) function by taking factors of a, delta, and N.
-      4) Defined the 'truncation_error' method and took the factors of x, a, and N to calculate the error according to the approximation of $P_{n}(x)$. Go around the repetition statement and output the approximation and error rate.
-      5) The plot function determined the expressions of P1, P2, and P4 given in the problem and plots the graph.
+I organized each methods like below.
 
+      (1) Defined a class called SinTaylorSeries and created the necessary method within the class.
+      (2) Defining f(x) = sin(x) in 'f' method.
+      (3) The 'PN' method is defined to calculate and return the $P_{n}(x)$ sum in the sin(x) function by taking factors of a, delta, and N.
+      (4) Defined the 'truncation_error' method and took the factors of x, a, and N to calculate the error according to the approximation of $P_{n}(x)$. Go around the repetition statement and output the approximation and error rate.
+      (5) The plot function determined the expressions of P1, P2, and P4 given in the problem and plots the graph.
+
+In conclusion, looking at the approximation and error output by differently outputting each N and delta in No. 2) above, the delta is large, and the result, which is the 'approx._sum' value, shows gradually different values at 0.5 which is $sin(\frac{\pi}{6})$, and the resulting error is also large, requiring a larger n of $P_{n}(x)$ to reduce the error.
+In the graph above, P1 (x) is a linear approximation when sin(x) is $x=\frac{\pi}{6}$. Near $x=\frac{\pi}{6}$, it is close and accurate to sin(x), but if x is far from the center point, it becomes farther from sin(x) and the accuracy decreases. In addition, as N increases, a curved graph appears and becomes closer to sin(x) than when N is 1, and a more accurate approximation is made even in the range of x where x is far from the center point. As you can see from the graph, delta increases and the distance x from the center point widens.
