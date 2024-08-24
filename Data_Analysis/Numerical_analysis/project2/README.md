@@ -30,7 +30,7 @@ This method is a method of solving a simultaneous equation after performing a fo
         [  0    0    0  -0.983 ]       ( 5.631 )
 
 After that, the solution and true relative errors finally obtained while proceeding with the backward are as follows.    
-$$x = {{1.5124959, -1.49743733, 3.53518394, -5.72930549}}^{T}$$ 
+$$x = { {1.5124959, -1.49743733, 3.53518394, -5.72930549} }^{T}$$ 
 $$error = {{ 5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16} }}^{T}$$    
     
 ##### B. Gaussian elimination with pivoting    
