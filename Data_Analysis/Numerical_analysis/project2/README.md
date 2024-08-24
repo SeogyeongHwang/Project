@@ -12,10 +12,11 @@
 If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A and B arrays as follows and finds the x-solution vector through the inversion method. When you run the code, below is the result.
 
         [ δ 3 2 1 ]       ( -3 )
-    A = [ 4 δ 7 5 ] , B = (  2 )   , x = $𝐴_{-1}𝐵$ can be obtained and true x value can be found.
+    A = [ 4 δ 7 5 ] , B = (  2 ) 
         [ 8 2 δ 2 ]       ( -2 )
-        [ 0 1 2 δ ]       ( -5 )
-    Therefore, it was confirmed that x is the following result.      
+        [ 0 1 2 δ ]       ( -5 )     
+
+, x = $𝐴_{-1}𝐵$ can be obtained and true x value can be found. Therefore, it was confirmed that x is the following result.    
     
 #### 2) Use the following methods to find out the solution, and measure the true relative errors.
 ##### A. Naïve Gaussian elimination
@@ -29,7 +30,6 @@ This method is a method of solving a simultaneous equation after performing a fo
         [  0    0    0  -0.983 ]       ( 5.631 )
 
 After that, the solution and true relative errors finally obtained while proceeding with the backward are as follows.
-
 $$x = {{ 1.5124959, -1.49743733, 3.53518394, -5.72930549 }}^{T}$$ 
 $$error = {{ 5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16} }}^{T}$$    
     
@@ -50,7 +50,6 @@ After that, if you output the U and d matrices obtained through the forward subs
         [ 0   0     0    -0.983 ]       ( 5.631 )
 
 The final solution and true relative error obtained after the backward process are as follows.
-
 $$x = {{ 1.5124959, -1.49743733, 3.53518394, -5.72930549 }}^{T}$$ 
 $$error = {{ 2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x {10}^{-15} }}^{T}$$  
 
