@@ -50,8 +50,8 @@ After that, if you output the U and d matrices obtained through the forward subs
         [ 0   0     0    -0.983 ]       ( 5.631 )
 
 The final solution and true relative error obtained after the backward process are as follows.
-$$x = {{1.5124959, -1.49743733, 3.53518394, -5.72930549}}^{T}$$ 
-$$error = {{ 2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x {10}^{-15} }}^{T}$$  
+$$x = {\{1.5124959, -1.49743733, 3.53518394, -5.72930549\}}^{T}$$ 
+$$error = {\{ 2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x {10}^{-15}/}}^{T}$$  
 
 
 ##### C. Gauss-Siedel method    
