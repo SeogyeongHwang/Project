@@ -112,4 +112,4 @@ $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$
 $$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x {10}^{-15}]}^{T}$$    
 On the other hand, when comparing the results of applying the roundoff error, one side of pivoting showed a smaller error.    
 
-4. 
+4. Since $\delta$ = 0.1 is added, the difference between what was pivoted and what was not pivoted is not noticeable, but if a very small $\delta$ is added, Gaussian elimination can diverge if pivoted is not performed.
