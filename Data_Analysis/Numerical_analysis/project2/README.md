@@ -56,3 +56,7 @@ $$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x 
 
 ##### C. Gauss-Siedel method    
 
+For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient must be greater than the absolute value of the coefficients in the other same row. However, a given matrix does not satisfy this. So it shows ***"This is not diagonally dominant"*** for the result.    
+
+#### 3) Consider the round-off error during the computation in Problem-2). Rounding operation can be easily implemented by np.round() function.    
+Example: np.round(value, decimals = k)     (The result when decimal is 4)
