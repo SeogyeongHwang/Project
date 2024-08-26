@@ -59,4 +59,51 @@ $$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x 
 For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient must be greater than the absolute value of the coefficients in the other same row. However, a given matrix does not satisfy this. So it shows ***"This is not diagonally dominant"*** for the result.    
 
 #### 3) Consider the round-off error during the computation in Problem-2). Rounding operation can be easily implemented by np.round() function.    
-Example: np.round(value, decimals = k)     (The result when decimal is 4)
+Example: np.round(value, decimals = k) ,    (The result when decimal is 4)    
+
+##### A. Naïve Gaussian Elimination    
+~
+
+    # Forward 
+    for k in range(0, n-1): 
+      for i in range(k+1, n): 
+       coeff = Aug[i, k] / Aug[k, k] 
+       Aug[i, k:n+1] = Aug[i, k:n+1] - coeff * Aug[k, k:n+1] 
+       Aug = np.round(Aug, decimals=decimals) 
+ 
+    # Backward 
+    x = np.zeros((n, 1)) 
+    x[n-1] = Aug[n-1, n] / Aug[n-1, n-1] 
+    x[n-1] = np.round(x[n-1], decimals = decimals) 
+    for i in range(n-2, -1, -1): 
+     x[i] = (Aug[i, n] - Aug[i, i+1:n] @ x[i+1:n]) / Aug[i, i] 
+     x[i] = np.round(x[i], decimals = decimals) 
+`
+The roundoff error was considered as follows using the np.round method in code 2. The results accordingly are as follows.    
+$$x = {[1.511, -1.4974, 3.5352, -5.7293]}^{T}$$ 
+$$error = {[9.89 x {10}^{-4}, 2.4926 x {10}^{-5}, 4.544 x {10}^{-6}, 9.58 x {10}^{-7}]}^{T}$$    
+
+##### B. Gaussian Elimination with Pivottnig    
+
+Since the np.round method was used in the same place as in A above, I did not attach the code separately, but the result is as follows.    
+$$x = {[1.5125, -1.4973, 3.5352, -5.7293]}^{T}$$ 
+$$error = {[2.708 x {10}^{-6}, 9.171 x {10}^{-5}, 4.544 x {10}^{-6}, 9.58 x {10}^{-7}]}^{T}$$    
+
+##### C. Gauss-Seidel method    
+
+The following results are obtained for the same reason as in 2).    
+***"This is not diagonally dominant"***    
+
+
+
+#### 4) Analyze the results caused by round-off errors for various schemes.    
+
+1. In Näve Gaussian Elimination, which did not take into account the roundoff error, it was confirmed that the final solution was very similar to the true value, so it had a very small true relative error.
+$$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
+$$error = {[5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16}]}^{T}$$
+This indicates that it is numerically stable when rounding is not applied.
+However, if you check the results when considering the round off error, you can see that the solution value changes slightly and the relative error value becomes larger.
+$$x = {[1.511, -1.4974, 3.5352, -5.7293]}^{T}$$ 
+$$error = {[9.89 x {10}^{-4}, 2.4926 x {10}^{-5}, 4.544 x {10}^{-6}, 9.58 x {10}^{-7}]}^{T}$$
+This suggests that the Naïve Gaussian Elimination method is sensitive to precision.
+2. 
