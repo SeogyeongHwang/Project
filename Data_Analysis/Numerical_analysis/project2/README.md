@@ -30,7 +30,7 @@ This method is a method of solving a simultaneous equation after performing a fo
         [  0    0    0  -0.983 ]       ( 5.631 )
 
 After that, the solution and true relative errors finally obtained while proceeding with the backward are as follows.    
-$$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
+$$x = {\{1.5124959, -1.49743733, 3.53518394, -5.72930549\}}^{T}$$ 
 $$error = {[5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16}]}^{T}$$    
     
 ##### B. Gaussian elimination with pivoting    
@@ -113,3 +113,32 @@ $$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x 
 On the other hand, when comparing the results of applying the roundoff error, one side of pivoting showed a smaller error.    
 
 4. Since $\delta$ = 0.1 is added, the difference between what was pivoted and what was not pivoted is not noticeable, but if a very small $\delta$ is added, Gaussian elimination can diverge if pivoted is not performed.
+
+5. Considering the Roundoff error, it can be seen that larger values of decimal make the solution more accurate and smaller values of true relative errors.    
+Unlike above, below is the result of giving decimal a value of 10.
++ A. Naïve Gaussian elimination
+  $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
+  $$error = {[4.6 x {10}^{-10}, 3.79 x {10}^{-11}, 6.7054 x {10}^{-11}, 6.5173 x {10}^{-11}]}^{T}$$
++ B. Gaussian elimination with pivoting
+  $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
+  $$error = {[6.8875 x {10}^{-11}, 1.624 x {10}^{-10}, 4.61 x {10}^{-11}, 5.7 x {10}^{-11}]}^{T}$$
+    
+The Gauss-Seidel method does not have convergence, so do not attach the result value separately.    
+
+
+
+### 2. The following figures show the Gaussian (normal) distribution function (PDF), and its cumulative distribution function (CDF).    
+
+![Alt_text](https://github.com/SeogyeongHwang/Project/blob/a5f143b66ba3fdbcf2880bc35f508ac15db40c6b/Data_Analysis/Numerical_analysis/project2/Q2_Results/PDF%26CDF.jpg)    
+
+#### 1) Generate the N x 1 data x having the normal distribution using np.random.normal() function with mean=0, standard deviation=4.    
+~
+
+    def normal_distribution(self, N, mean=0, std_dev=4): 
+        x = np.random.normal(mean, std_dev, N) 
+        return x 
+`
+
+Above method was created to generate data.    
+
+#### 2) Design the function for CDF of **x**, i.e., y = CDF(x) = $F_{x}(x)$ = P[**x** 
