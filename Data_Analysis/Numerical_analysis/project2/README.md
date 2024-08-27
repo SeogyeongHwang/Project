@@ -16,7 +16,7 @@ If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A
         [ 8 2 δ 2 ]       ( -2 )
         [ 0 1 2 δ ]       ( -5 )     
 
-, x = $𝐴_{-1}𝐵$ can be obtained and true x value can be found. Therefore, it was confirmed that x is the following result.    
+, x = $𝐴^{-1}𝐵$ can be obtained and true x value can be found. Therefore, it was confirmed that x is the following result.    
     
 #### 2) Use the following methods to find out the solution, and measure the true relative errors.
 ##### A. Naïve Gaussian elimination
@@ -97,7 +97,7 @@ The following results are obtained for the same reason as in 2).
 
 #### 4) Analyze the results caused by round-off errors for various schemes.    
 
-1. In Näve Gaussian Elimination, which did not take into account the roundoff error, it was confirmed that the final solution was very similar to the true value, so it had a very small true relative error.    
+1. In Naïve Gaussian Elimination, which did not take into account the roundoff error, it was confirmed that the final solution was very similar to the true value, so it had a very small true relative error.    
 $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
 $$error = {[5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16}]}^{T}$$    
 This indicates that it is numerically stable when rounding is not applied.    
