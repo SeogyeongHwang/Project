@@ -1,0 +1,64 @@
+ Results for 2024-08-19 21:28:41.939834
+
+< True Solutions and errors >
+when lambda = 0.1
+
+1) matrix inversion
+[[ 1.5124959 ]
+ [-1.49743733]
+ [ 3.53518394]
+ [-5.72930549]]
+
+2) Naive Gaussian Elimination
+< solution >
+[[ 1.5124959 ]
+ [-1.49743733]
+ [ 3.53518394]
+ [-5.72930549]]
+< error >
+[[5.28504292e-15]
+ [5.93132283e-16]
+ [2.51239663e-16]
+ [6.20094999e-16]]
+
+3) Gaussian Elimination with Pivotting
+< solution >
+[[ 1.5124959 ]
+ [-1.49743733]
+ [ 3.53518394]
+ [-5.72930549]]
+< error >
+[[2.34890797e-15]
+ [3.70707677e-15]
+ [1.50743798e-15]
+ [1.55023750e-15]]
+
+4) Gauss Seidal method
+This is not diagonally dominant
+
+5) Considering round-off error
+< solution >
+[[ 1.5124959 ]
+ [-1.49743733]
+ [ 3.53518394]
+ [-5.72930549]]
+< error >
+[[4.60051976e-10]
+ [3.79063428e-11]
+ [6.70548610e-11]
+ [6.51730695e-11]]
+
+6) Gaussian ELimination with Pivotting and Round-off Error
+< solution >
+[[ 1.5124959 ]
+ [-1.49743732]
+ [ 3.53518394]
+ [-5.72930549]]
+< error >
+[[6.88751198e-11]
+ [1.62435948e-10]
+ [4.60933078e-11]
+ [5.70057983e-11]]
+
+7) Gauss Seidal Round-off Error
+This is not diagonally dominant

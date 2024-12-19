@@ -1,5 +1,11 @@
-# 2번
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Apr  7 12:22:09 2024
 
+@author: Eve
+"""
+from datetime import datetime
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -88,44 +94,96 @@ if __name__ == "__main__":
     N = 100
     q2 = Q2()
 
-    # 1
+    # 1. Generate the data
     x = q2.normal_distribution(N)
 
-    # 2, 3
-    x, y = q2.design_CDF(N)
-    plt.title("Scatter plot of CDF values")
-    plt.scatter(x, y)
+    # 2, 3. design the function for CDF and draw the scattered plot
+    x, y = q2.design_CDF(N)    
+    title = "Scatter plot of CDF values" 
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.scatter(x, y)
+    ax.set_title(title, fontsize = 16)
+    ax.set_xlabel('x', fontsize = 16)
+    ax.set_ylabel('f(x)', fontsize = 16)
+    ax.axhline(y=0, color='k')
+    ax.axvline(x=0, color='k')
+    plt.grid()
     plt.show()
+    
+    if not os.path.exists("Q2_Results"):
+        os.makedirs("Q2_Results")
+    path = os.path.join("Q2_Results", "Scatter plot of CDF values")
+    fig.savefig(path)
+    plt.close()
 
-    # 4 - Linear Regression
+    # 4. Linear Regression
     a1, a0, r = q2.linear_regression(x, y)
 
     X = np.linspace(-10, 10)
     Y = a1 * X + a0
-    plt.title("Linear Regression")
-    plt.plot(X, Y)
-    plt.scatter(x, y)
+    title = f'Linear Regression(N={N})'
+    fig, ax = plt.subplots(figsize=(8,8))
+    ax.plot(X, Y)
+    ax.scatter(x, y)
+    ax.set_title(title, fontsize = 16)
+    ax.set_xlabel('x', fontsize = 16)
+    ax.set_ylabel('f(x)', fontsize = 16)
+    ax.axhline(y=0, color='k')
+    ax.axvline(x=0, color='k')
+    plt.grid()
     plt.show()
+    
+    if not os.path.exists("Q2_Results"):
+        os.makedirs("Q2_Results")
+    path = os.path.join("Q2_Results", f'Linear Regression(N={N})')
+    fig.savefig(path)
+    plt.close()
 
-    # 4 - Polynomial regression
-    degree = 2
+    # 4. Polynomial regression
+    degree = 10
     p, r = q2.polynomial_regression(x, y, degree)
 
     X = np.linspace(-10, 10)
     Y = np.zeros_like(X)
     for i in range(degree+1):
       Y += p[i] * (X**i)
-    plt.title("Polynomial Regression")
-    plt.plot(X, Y)
-    plt.scatter(x, y)
+    title = f'Polynomial Regression(N={N}, degree={degree})'
+    fig, ax = plt.subplots(figsize=(8,8))
+    ax.plot(X, Y)
+    ax.scatter(x, y)
+    ax.set_title(title, fontsize = 16)
+    ax.set_xlabel('x', fontsize = 16)
+    ax.set_ylabel('f(x)', fontsize = 16)
+    ax.axhline(y=0, color='k')
+    ax.axvline(x=0, color='k')
+    plt.grid()
     plt.show()
 
-    # 4 - Non linear Regression
+    if not os.path.exists("Q2_Results"):
+        os.makedirs("Q2_Results")
+    path = os.path.join("Q2_Results", f'Polynomial Regression(N={N}, degree={degree})')
+    fig.savefig(path)
+    plt.close()
+
+    # 4. Non linear Regression
     a1, a0, r = q2.NonLinear_regression(x, y)
 
     X = np.linspace(-10, 10)
     Y = np.exp(a0) * (X ** a1)
-    plt.title("Non-linear Regression")
-    plt.scatter(x, y)
-    plt.plot(X, Y)
+    title = f'Non-linear Regression(N={N})'
+    fig, ax = plt.subplots(figsize=(8,8))
+    ax.scatter(x, y)
+    ax.plot(X, Y)
+    ax.set_title(title, fontsize = 16)
+    ax.set_xlabel('x', fontsize = 16)
+    ax.set_ylabel('f(x)', fontsize = 16)
+    ax.axhline(y=0, color='k')
+    ax.axvline(x=0, color='k')
+    plt.grid()
     plt.show()
+
+    if not os.path.exists("Q2_Results"):
+        os.makedirs("Q2_Results")
+    path = os.path.join("Q2_Results",f'Non-linear Regression(N={N})')
+    fig.savefig(path)
+    plt.close()

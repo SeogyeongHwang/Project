@@ -1,5 +1,11 @@
-# 1번
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Apr  7 12:22:09 2024
 
+@author: Eve
+"""
+from datetime import datetime
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -16,7 +22,7 @@ class find_matrix_solution:
 
     return x
 
-  def NaiveGaussianElimination(self):
+  def NaiveGaussianElimination(self, f):
     n = np.size(self.b)
     Aug = np.concatenate((self.A, self.b), axis = 1)
 
@@ -35,10 +41,15 @@ class find_matrix_solution:
     # true_relative error
     true_value = self.inversion()
     error = np.abs((x - true_value) / true_value)
+    
+    f.write("\n< solution >\n")
+    f.write(np.array2string(x))
+    f.write("\n< error >\n")
+    f.write(np.array2string(error))
 
-    return x, error
+    return
 
-  def GaussianElimination_Pivotting(self):
+  def GaussianElimination_Pivotting(self, f):
     n = np.size(self.b)
     Aug = np.concatenate((self.A, self.b), axis = 1)
 
@@ -62,9 +73,14 @@ class find_matrix_solution:
     true_value = self.inversion()
     error = np.abs((x - true_value) / true_value)
 
-    return x, error
+    f.write("\n< solution >\n")
+    f.write(np.array2string(x))
+    f.write("\n< error >\n")
+    f.write(np.array2string(error))
 
-  def Gauss_Seidal(self, max_iter = 100, eps = 0.01):
+    return
+
+  def Gauss_Seidal(self, f, max_iter = 100, eps = 0.01):
     # check convergence for Gauss-Seidel method
     for i in range(len(self.b)):
       sum_row = 0
@@ -72,7 +88,8 @@ class find_matrix_solution:
         if (j != i):
            sum_row += np.abs(self.A[i][j])
       if np.abs(self.A[i][i]) < sum_row:
-        return ("This is not diagonally dominant")
+        f.write("This is not diagonally dominant")
+        return
 
     n = np.size(self.b)
     x_old = np.zeros((n, 1))
@@ -85,11 +102,14 @@ class find_matrix_solution:
       x_old = x_new.copy()
 
       if np.sum((self.A @ x_new - self.b.T)**2)**0.5 < eps or iter == max_iter-1:
-        return x_new
+          f.write(np.array2string(x_new))
+          return
+      
+    f.write(np.array2string(x_new))
+    
+    return
 
-    return x_new
-
-  def GaussianElimination_roundoff(self, decimals=10):
+  def GaussianElimination_roundoff(self, f, decimals=10):
     n = np.size(self.b)
     Aug = np.concatenate((self.A, self.b), axis = 1)
 
@@ -111,10 +131,15 @@ class find_matrix_solution:
     # true_relative error
     true_value = self.inversion()
     error = np.abs((x - true_value) / true_value)
+    
+    f.write("\n< solution >\n")
+    f.write(np.array2string(x))
+    f.write("\n< error >\n")
+    f.write(np.array2string(error))
 
-    return x, error
+    return
 
-  def GaussianElimination_Pivotting_roundoff(self, decimals=10):
+  def GaussianElimination_Pivotting_roundoff(self, f, decimals=10):
     n = np.size(self.b)
     Aug = np.concatenate((self.A, self.b), axis = 1)
 
@@ -141,9 +166,14 @@ class find_matrix_solution:
     true_value = self.inversion()
     error = np.abs((x - true_value) / true_value)
 
-    return x, error
+    f.write("\n< solution >\n")
+    f.write(np.array2string(x))
+    f.write("\n< error >\n")
+    f.write(np.array2string(error))
 
-  def Gauss_Seidal_roundoff(self, max_iter = 100, eps = 0.01, decimals=10):
+    return
+
+  def Gauss_Seidal_roundoff(self, f, max_iter = 100, eps = 0.01, decimals=10):
     # check convergence for Gauss-Seidel method
     for i in range(len(self.b)):
       sum_row = 0
@@ -151,7 +181,8 @@ class find_matrix_solution:
         if (j != i):
            sum_row += np.abs(self.A[i][j])
       if np.abs(self.A[i][i]) < sum_row:
-        return ("This is not diagonally dominant")
+          f.write("This is not diagonally dominant")
+          return
 
     n = np.size(self.b)
     x_old = np.zeros((n, 1))
@@ -165,47 +196,49 @@ class find_matrix_solution:
       x_old = x_new.copy()
 
       if np.sum((self.A @ x_new - self.b.T)**2)**0.5 < eps or iter == max_iter-1:
-        return x_new
+          f.write(np.array2string(x_new))
+          return
+      
+    f.write(np.array2string(x_new))
+      
+    return
 
-    return x_new
-
-if __name__ == "__main__":
+if __name__ == "__main__":        
     n = 1
     lamb = 10**(-n)
     q1 = find_matrix_solution(lamb)
+    
+    path = os.path.join("Q1_Results.txt")
+    with open(path, 'w') as f:
+        f.write(" Results for %s\n\n" % datetime.now())
+        f.write("< True Solutions and errors >\n")
+        f.write(f'when lambda = {lamb}\n\n')
+        
+        # 1. using matrix inversion
+        f.write("1) matrix inversion\n")
+        result = q1.inversion()
+        f.write(np.array2string(result))
+        
+        # 2-A. Naive Gaussian elimination
+        f.write("\n\n2) Naive Gaussian Elimination")
+        q1.NaiveGaussianElimination(f)
 
-    # 1
-    print("1. inversion ")
-    print(q1.inversion())
+        # 2-B. Gaussian elimination with pivotting
+        f.write("\n\n3) Gaussian Elimination with Pivotting")
+        q1.GaussianElimination_Pivotting(f)
 
-    # 2-A
-    print("\n2-A. Naive Gaussian elimination")
-    sol, error = q1.NaiveGaussianElimination()
-    print("< solution >\n", sol)
-    print("< error >\n", error)
+        # 2-C. Gauss Seidal method
+        f.write("\n\n4) Gauss Seidal method\n")
+        q1.Gauss_Seidal(f)        
 
-    # 2-B
-    print("\n2-B. Gaussian elimination with pivotting")
-    sol, error = q1.GaussianElimination_Pivotting()
-    print("< solution >\n", sol)
-    print("< error >\n", error)
+        # 3-A. Round-off Error
+        f.write("\n\n5) Considering round-off error")
+        q1.GaussianElimination_roundoff(f)
 
-    # 2-C
-    print("\n2-C. Gauss_Seidel method")
-    sol = q1.Gauss_Seidal()
-    print("< solution >\n", sol)
+        # 3-B. Gaussian Elimination with Pivotting & Roundoff-Error
+        f.write("\n\n6) Gaussian ELimination with Pivotting and Round-off Error")
+        q1.GaussianElimination_Pivotting_roundoff(f)
 
-    # 3-A
-    print("\n[ Considering round-off error ]")
-    sol, error = q1.GaussianElimination_roundoff()
-    print("3-A. Gaussian Elimination\n", sol)
-    print("<error>\n", error)
-
-    # 3-B
-    sol, error = q1.GaussianElimination_Pivotting_roundoff()
-    print("\n3-B. Gaussian Elimination with Pivotting\n", sol)
-    print("<error>\n", error)
-
-    # 3-C
-    sol = q1.Gauss_Seidal_roundoff()
-    print("\n3-C. Gauss_Seidel method\n", sol)
+        # 3-C. Gauss Seidal Roundoff Error
+        f.write("\n\n7) Gauss Seidal Round-off Error\n")
+        q1.Gauss_Seidal_roundoff(f)

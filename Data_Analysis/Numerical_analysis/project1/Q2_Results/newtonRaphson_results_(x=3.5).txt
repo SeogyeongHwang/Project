@@ -1,0 +1,9 @@
+ Results for 2024-08-14 20:17:55.075983
+
+< Results for newtonRaphson Method >
+f(x)=(x-1)(x-2)(x-3)   when x = 3.5
+
+n = 1, x_new = 3.1739, Error: 10.273973
+n = 2, x_new = 3.0323, Error: 4.669907
+n = 3, x_new = 3.0015, Error: 1.027874
+n = 4, x_new = 3.0000, Error: 0.048426
