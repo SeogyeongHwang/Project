@@ -2,12 +2,17 @@
 
 ### Introduction
 
-On Linux, a tool that measures the current usage of resources is operated to measure the usage of each resource when executing a program, and it is expressed as a graph using Python.   
+There is a tool that measures the current usage (% throughput) of resources (CPU, Memory, Disk, Network) on Linux, which measures the usage of each resource when running a program and we will use Python to represent it as a graph.
 
+### Step 1 - Resource Profiling
 
-### Why do people use box plot?
-
-The average or standard deviation commonly used to produce statistics is more likely to convey distorted meaning if there is an outlier in the data, so it is useful to use the box plot to easily determine how many outliers are included and also easy to compare between datasets.
+* Install sysstat, which Linux provides by default, on Ubuntu.
+* After installation, monitor each resource using the following commands and save the results to a file.
+  - sar -n DEV 1 > filename.txt (network)
+  - sar -r 1 > filename.txt (Memory)
+  - sar -d -p 1 > filename.txt (disk.dat)
+  - sar -u -P ALL 1 > filename.txt (CPU)
+* After executing each command, when you open the file, it is stored as a text file like the one in the folder step1.
 
 ### Method
 
