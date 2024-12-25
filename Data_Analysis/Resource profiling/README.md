@@ -19,13 +19,32 @@ There is a tool that measures the current usage (% throughput) of resources (CPU
 
 1. Run the sleep command in the background for 20 seconds, such as "sleep 20 &", and then measure the CPU resources.
 2. Create and run an infinite loop program below, then measure the same CPU resources.
+   '''c
+   int main(void) {
+     for (;;)
+       ;
+   }
+   '''
 3. Similarly, write and run a program that invokes the getppid() function indefinitely, and measure CPU resources.
+   '''c
+   int main(void) {
+     for (;;)
+       getppid();
+   }
+   '''
    
 We can check the cpu mesurement results after executing cases 1, 2, and 3 in the folder 'step 2'. Let's compare and analyze how cpu usage varies in the above three cases.
 
-|       |    infinite loop   | getppid() infinite call | sleep 20 |
-|-------| ------------------ | ----------------------- | -------- |
-| %user | High (using 1 cpu) |    High (using 1 cpu)   |    Low   |
+|              |    infinite loop       | getppid() infinite call                      | sleep 20  |
+|--------------|------------------------|----------------------------------------------|-----------|
+| %user        | High (using 1 cpu)     | High (using 1 cpu)                           | Low       |
+| %system      | Low                    | Little bit high because of using system call | Low       |
+| %idle        | cpu in use: low        | cpu in use: low                              | High      |
+| Resource     | Limited to other tasks | Limited to other tasks                       | Available |
+| Availability | Limited to other tasks | Limited to other tasks                       | Available |
+   
+The infinite loop and the getppid() infinite call code all use one cpu, and either cpu 0 or 1 shows a high %user vaLue. However, the %system value was higher because the getppid() keeps system calling.
+In contrast to the two infinite loop codes, when the sleep command is executed, the %user value is very low and resource availability is high because there is no cpu in use.
 
 ### Normalization Box Plot
 
