@@ -13,7 +13,8 @@ There is a tool that measures the current usage (% throughput) of resources (CPU
   - sar -d -p 1 > filename.txt (disk.dat)
   - sar -u -P ALL 1 > filename.txt (CPU)
 * After executing each command, when you open the file, it is stored as a text file like the one in the folder step1.
-* If the time information is not output properly, add <span style="color: #008000">LC_TIME="en_US.UTF-8"</span> to the ~/.bashrc file.
+* If the time information is not output properly, add
+* <span style="color: #008000">LC_TIME="en_US.UTF-8"</span> to the ~/.bashrc file.
 
 
 ### Method
