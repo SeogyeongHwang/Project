@@ -5,7 +5,7 @@ from matplotlib import font_manager, rc
 
 now = time
 
-# 한글 폰트 깨짐 해결
+# fixed broken Korean font
 font_path = "C:/Windows/Fonts/NGULIM.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font)

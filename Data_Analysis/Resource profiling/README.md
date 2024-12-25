@@ -1,16 +1,22 @@
-# Box plot
+# Resource Profiling in Linux
 
-### What is box plot?
+### Introduction
 
-Box plot is a type of data visualization that allows you to easily compare different data while simultaneously showing the distribution and outliers of the data. Instead of using the raw data as it is, the data is processed and visualized with a statistical concept called the ‘Five-number Summary’.    
+There is a tool that measures the current usage (% throughput) of resources (CPU, Memory, Disk, Network) on Linux, which measures the usage of each resource when running a program and we will use Python to represent it as a graph.
 
-Five-number summary is a method of presenting data with five statistics: the minimum and maximum values, and the first quartile(Q1), the second quartile(Q2, median), and the third quartile(Q3).
+### Step 1 - Resource Profiling
 
-![Alt text](https://github.com/SeogyeongHwang/Project/blob/950cf78eaae2f3d1b5dc3c7382b6f4fc5b121c37/Data_Analysis/basic_analysis/box_plot.jpg)
+* Install sysstat, which Linux provides by default, on Ubuntu.
+* After installation, monitor each resource using the following commands and save the results to a file.
+  - sar -n DEV 1 > filename.txt (network)
+  - sar -r 1 > filename.txt (Memory)
+  - sar -d -p 1 > filename.txt (disk.dat)
+  - sar -u -P ALL 1 > filename.txt (CPU)
+* After executing each command, when you open the file, it is stored as a text file like the one in the folder step1.
+* If the time information is not output properly, add
+<span style="color:green"> LC_TIME="en_US.UTF-8" </span>
+to the ~/.bashrc file.
 
-### Why do people use box plot?
-
-The average or standard deviation commonly used to produce statistics is more likely to convey distorted meaning if there is an outlier in the data, so it is useful to use the box plot to easily determine how many outliers are included and also easy to compare between datasets.
 
 ### Method
 
