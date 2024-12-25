@@ -12,16 +12,20 @@ There is a tool that measures the current usage (% throughput) of resources (CPU
   - sar -r 1 > filename.txt (Memory)
   - sar -d -p 1 > filename.txt (disk.dat)
   - sar -u -P ALL 1 > filename.txt (CPU)
-* After executing each command, when you open the file, it is stored as a text file like the one in the folder step1.
-* If the time information is not output properly, add
-<span style="color:green"> LC_TIME="en_US.UTF-8" </span>
-to the ~/.bashrc file.
+* After executing each command, when you open the file, it is stored as a text file like the one in the folder 'step1'.
+* If the time information is not output properly, add LC_TIME="en_US.UTF-8" to the ~/.bashrc file.
 
+### Step 2 - test 
 
-### Method
+1. Run the sleep command in the background for 20 seconds, such as "sleep 20 &", and then measure the CPU resources.
+2. Create and run an infinite loop program below, then measure the same CPU resources.
+3. Similarly, write and run a program that invokes the getppid() function indefinitely, and measure CPU resources.
+   
+We can check the cpu mesurement results after executing cases 1, 2, and 3 in the folder 'step 2'. Let's compare and analyze how cpu usage varies in the above three cases.
 
-- .min(), .max() : To get the minimum and the maximum values between data
-- .plot(kind:'box') : plot data as a box plot
+|       |    infinite loop   | getppid() infinite call | sleep 20 |
+|-------| ------------------ | ----------------------- | -------- |
+| %user | High (using 1 cpu) |    High (using 1 cpu)   |    Low   |
 
 ### Normalization Box Plot
 
