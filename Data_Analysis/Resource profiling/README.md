@@ -49,9 +49,14 @@ In contrast to the two infinite loop codes, when the sleep command is executed, 
 
 ### Step 3 - Application Program
 
-Change the range of the characteristic value to [0, 1] using this formula $X'=\frac{X - X_min}{X_max - X_min}$.   
-The largest value converted to 1, and the smallest value to 0, allowing the characteristics to be placed in an equal position.
-You can see the result below.
+* Use wc (word count) to find out the number of words for large file.
+* In this case, I downloaded the CAvideo.csv file from <https://www.kaggle.com/datasnaek/youtube-new>.
+* Once the file is ready, run the following command.
+  + wc textfilename.txt (filename)
+   
+1. When executing the wc program, the resource measurement code written in step 1 is executed simultaneously. All resource measurement result values are stored in a separate directory.
+2. Run the web browser and play the video on YouTube. At the same time, execute the resource measurement code written in Step 1.
+3. Compare what was measured when running the wc command and when running the YouTube video. We're going to graph each of them below.
 
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/94b095b9f26ce51ad775b9eeda907ebea02cca64/Data_Analysis/basic_analysis/Plots/Data_normalization_plot.jpg)
 
