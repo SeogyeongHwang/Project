@@ -19,13 +19,16 @@ There is a tool that measures the current usage (% throughput) of resources (CPU
 
 1. Run the sleep command in the background for 20 seconds, such as "sleep 20 &", and then measure the CPU resources.
 2. Create and run an infinite loop program below, then measure the same CPU resources.
+
    '''
    int main(void) {
      for (;;)
        ;
    }
    '''
+   
 3. Similarly, write and run a program that invokes the getppid() function indefinitely, and measure CPU resources.
+   
    '''
    int main(void) {
      for (;;)
