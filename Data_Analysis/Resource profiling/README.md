@@ -15,18 +15,18 @@ There is a tool that measures the current usage (% throughput) of resources (CPU
 * After executing each command, when you open the file, it is stored as a text file like the one in the folder 'step1'.
 * If the time information is not output properly, add LC_TIME="en_US.UTF-8" to the ~/.bashrc file.
 
-### Step 2 - test 
+### Step 2 - Test 
 
 1. Run the sleep command in the background for 20 seconds, such as "sleep 20 &", and then measure the CPU resources.
 2. Create and run an infinite loop program below, then measure the same CPU resources.
-   '''c
+   '''
    int main(void) {
      for (;;)
        ;
    }
    '''
 3. Similarly, write and run a program that invokes the getppid() function indefinitely, and measure CPU resources.
-   '''c
+   '''
    int main(void) {
      for (;;)
        getppid();
@@ -46,7 +46,7 @@ We can check the cpu mesurement results after executing cases 1, 2, and 3 in the
 The infinite loop and the getppid() infinite call code all use one cpu, and either cpu 0 or 1 shows a high %user vaLue. However, the %system value was higher because the getppid() keeps system calling.
 In contrast to the two infinite loop codes, when the sleep command is executed, the %user value is very low and resource availability is high because there is no cpu in use.
 
-### Normalization Box Plot
+### Step 3 - Application Program
 
 Change the range of the characteristic value to [0, 1] using this formula $X'=\frac{X - X_min}{X_max - X_min}$.   
 The largest value converted to 1, and the smallest value to 0, allowing the characteristics to be placed in an equal position.
