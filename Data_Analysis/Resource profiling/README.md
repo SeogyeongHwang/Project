@@ -56,13 +56,17 @@ In contrast to the two infinite loop codes, when the sleep command is executed, 
    
 1. When executing the wc program, the resource measurement code written in step 1 is executed simultaneously. All resource measurement result values are stored in a separate directory.
 2. Run the web browser and play the video on YouTube. At the same time, execute the resource measurement code written in Step 1.
-3. Compare what was measured when running the wc command and when running the YouTube video. We're going to graph each of them below.
-
-![Alt_text](https://github.com/SeogyeongHwang/Project/blob/94b095b9f26ce51ad775b9eeda907ebea02cca64/Data_Analysis/basic_analysis/Plots/Data_normalization_plot.jpg)
-
    
+We can check the results of resource usage(CPU, Memory, Disk, Network) for three cases above in the folder 'step 3'. Let's analyze the results between three cases.
+
+Compared to the execution of the wc command, all resources are used much more when playing YouTube videos. In particular, there was a big difference in CPU, memory, and network activities.   
+While there is no network activity when executing the wc command, the network is used when playing Youtube videos.   
+Youtube video playback measured 30% higher in average memory usage than when using the wc command.
+There is some disk activity when playing YouTube videos, and there is no disk activity at all when using wc command, so the value is measured as 0. Most of the wc commands have very low CPU usage and are in an idle state, while YouTube has a remarkably high CPU usage rate and the value of %system is particularly high.
    
-# Correlation
+### Step 4 - Graph the storage result of Step 3 
+
+#### Method
 
 Correlation refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related. We use it to determine whether there is a correlation between variables, and to determine the degree of correlation. We can also check increasing direction.   
 Correlation coefficients only exist between -1 and +1.
