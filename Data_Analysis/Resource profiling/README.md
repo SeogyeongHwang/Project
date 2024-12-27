@@ -50,7 +50,7 @@ In contrast to the two infinite loop codes, when the sleep command is executed, 
 ### Step 3 - Application Program
 
 * Use wc (word count) to find out the number of words for large file.
-* In this case, I downloaded the CAvideo.csv file from <https://www.kaggle.com/datasnaek/youtube-new>.
+* I used CAvideo.csv dataset from <https://www.kaggle.com/datasnaek/youtube-new>.
 * Once the file is ready, run the following command.
   + wc textfilename.txt (filename)
    
