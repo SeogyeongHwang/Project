@@ -66,6 +66,14 @@ There is some disk activity when playing YouTube videos, and there is no disk ac
    
 ### Step 4 - Graph the storage result of Step 3 
 
++ The saved results are opened using Python, read by line, and then a graph is generated using the Matlab library.
++ Each file represent as one graph, and the data of interest for each graph are as follows. (The y-axis is the unit below.)
+  - CPU : in 'all' low, (100-idle) (unit: %)
+  - Memory : %memused (unit: %)
+  - Disk : %util (unit: %)
+  - Network : rxkB/s, txkB/s (unit: kB/s)
++ The X-axis becomes the time of each data. Since data is generated every second, the start time of the x-axis is 0 seconds to express the time elapsed.
+   
 #### Method
 
 Correlation refers to the statistical relationship between the two entities. It measures the extent to which two variables are linearly related. We use it to determine whether there is a correlation between variables, and to determine the degree of correlation. We can also check increasing direction.   
