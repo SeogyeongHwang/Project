@@ -1,0 +1,37 @@
+Linux 4.4.0-142-generic (ubuntu) 	10/05/2024 	_x86_64_	(2 CPU)
+
+11:27:48 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:49 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:49 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:49 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:50 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:50 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:50 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:51 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:51 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:51 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:52 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:52 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:52 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:53 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:53 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:53 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:54 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:54 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:54 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:55 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:55 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:55 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:56 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:56 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+11:27:56 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:27:57 AM       sr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:27:57 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00

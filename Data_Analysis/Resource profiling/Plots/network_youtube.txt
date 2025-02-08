@@ -1,0 +1,35 @@
+Linux 4.4.0-142-generic (ubuntu) 	10/05/2024 	_x86_64_	(2 CPU)
+
+04:05:24 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:25 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+04:05:25 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+04:05:25 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:26 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+04:05:26 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+04:05:26 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:27 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+04:05:27 PM      eth0      1.00      1.00      0.06      0.06      0.00      0.00      0.00      0.00
+
+04:05:27 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:28 PM        lo      4.00      4.00      0.46      0.46      0.00      0.00      0.00      0.00
+04:05:28 PM      eth0    354.00     22.00    509.31      7.53      0.00      0.00      0.00      0.42
+
+04:05:28 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:29 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+04:05:29 PM      eth0      2.97      2.97      0.21      0.21      0.00      0.00      0.00      0.00
+
+04:05:29 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:30 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+04:05:30 PM      eth0      1.00      1.00      0.06      0.06      0.00      0.00      0.00      0.00
+
+
+
+04:05:30 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+04:05:30 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+04:05:30 PM      eth0      5.26      5.26      0.39      0.39      0.00      0.00      0.00      0.00
+
+Average:        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+Average:           lo      0.63      0.63      0.07      0.07      0.00      0.00      0.00      0.00
+Average:         eth0     56.49      4.54     79.78      1.25      0.00      0.00      0.00      0.07
