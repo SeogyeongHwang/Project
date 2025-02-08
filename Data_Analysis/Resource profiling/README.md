@@ -83,7 +83,7 @@ There is some disk activity when playing YouTube videos, and there is no disk ac
       5) data_plot :
 
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/3f67465a0ece811b78d74fa8dccbceba30c8f214/Data_Analysis/Resource%20profiling/Plots/Plot_networkWC.pdf" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/560edfcb2c6ad58dff2e29aaeb1f95b0232f4523/Data_Analysis/Resource%20profiling/Plots/Plot_networkYoutube.pdf" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/ee138d53ac29d2f667f1f551a96a90f411899e9c/Data_Analysis/Resource%20profiling/Plots/Plot_networkWC.jpg" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/ee138d53ac29d2f667f1f551a96a90f411899e9c/Data_Analysis/Resource%20profiling/Plots/Plot_networkYoutube.jpg" width="49%" height="49%">
    </p>
 
