@@ -2,10 +2,11 @@ import matplotlib.pyplot as plt
 import datetime
 import time
 from matplotlib import font_manager, rc
+import os
 
 now = time
 
-# fixed broken Korean font
+# To avoid broken Korean font
 font_path = "C:/Windows/Fonts/NGULIM.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font)
@@ -14,7 +15,12 @@ def network_plot(filename, name):
     times = []
     rx_data = []
     tx_data = []
-    with open(filename, 'r') as file:
+    
+    if not os.path.exists("Plots"):
+        os.makedirs("Plots")
+    path = os.path.join("Plots", filename)
+    
+    with open(path, 'r') as file:
         for line in file:
             if 'eth0' in line and not line.startswith('Average'):
                 parts = line.split()
@@ -38,7 +44,8 @@ def network_plot(filename, name):
     ax.legend()
     ax.grid()
     
-    plt.savefig(name)
+    path = os.path.join("Plots", name)
+    fig.savefig(path)
     plt.show()
     
     return  
@@ -46,7 +53,12 @@ def network_plot(filename, name):
 def mem_data(filename):
     times = []
     mem_usage = []
-    with open(filename, 'r') as file:
+    
+    if not os.path.exists("Plots"):
+        os.makedirs("Plots")
+    path = os.path.join("Plots", filename)
+    
+    with open(path, 'r') as file:
         next(file)
         next(file)
         next(file)
@@ -63,7 +75,12 @@ def mem_data(filename):
 def disk_data(filename):
     times = []
     disk_usage = []
-    with open(filename, 'r') as file:
+    
+    if not os.path.exists("Plots"):
+        os.makedirs("Plots")
+    path = os.path.join("Plots", filename)
+    
+    with open(path, 'r') as file:
         for line in file:
             if 'sda' in line and not line.startswith("Average:"):
                 parts = line.split()
@@ -77,7 +94,12 @@ def disk_data(filename):
 def cpu_data(filename):
     times = []
     cpu_usage = []
-    with open(filename, 'r') as file:
+    
+    if not os.path.exists("Plots"):
+        os.makedirs("Plots")
+    path = os.path.join("Plots", filename)
+    
+    with open(path, 'r') as file:
         for line in file:
             if 'all' in line and not line.startswith('Average:'):
                 parts = line.split()
@@ -101,28 +123,32 @@ def data_plot(x, y, ylabel, resource, name):
     plt.legend()
     plt.grid()
     
-    plt.savefig(name)
+    if not os.path.exists("Plots"):
+        os.makedirs("Plots")
+    path = os.path.join("Plots", name)
+    fig = plt.gcf()
+    fig.savefig(path)
     plt.show()
     
     return
 
-network_plot('network_wc.txt', 'Plot_networkWC.pdf')
-network_plot('network_youtube.txt', 'Plot_networkYoutube.pdf')
+network_plot('network_wc.txt', 'Plot_networkWC.jpg')
+network_plot('network_youtube.txt', 'Plot_networkYoutube.jpg')
 
 x, y = mem_data('memory_wc.txt')
-data_plot(x, y, '%memused(%)', 'Memory', 'Plot_memWC.pdf')
+data_plot(x, y, '%memused(%)', 'Memory', 'Plot_memWC.jpg')
 
 x, y = mem_data('memory_youtube.txt')
-data_plot(x, y, '%memused(%)', 'Memory', 'Plot_memYoutube.pdf')
+data_plot(x, y, '%memused(%)', 'Memory', 'Plot_memYoutube.jpg')
 
 x, y = disk_data('disk_dat_wc.txt')
-data_plot(x, y, '%util(%)', 'Disk', 'Plot_diskWC.pdf')
+data_plot(x, y, '%util(%)', 'Disk', 'Plot_diskWC.jpg')
 
 x, y = disk_data('disk_dat_youtube.txt')
-data_plot(x, y, '%util(%)', 'Disk', 'Plot_diskYoutube.pdf')
+data_plot(x, y, '%util(%)', 'Disk', 'Plot_diskYoutube.jpg')
 
 x, y = cpu_data('cpu_wc.txt')
-data_plot(x, y, '(100 - %idle)(%)', 'CPU', 'Plot_cpuWC.pdf')
+data_plot(x, y, '(100 - %idle)(%)', 'CPU', 'Plot_cpuWC.jpg')
 
 x, y = cpu_data('cpu_youtube.txt')
-data_plot(x, y, '(100 - %idle)(%)', 'CPU', 'Plot_cpuYoutube.pdf')
+data_plot(x, y, '(100 - %idle)(%)', 'CPU', 'Plot_cpuYoutube.jpg')
