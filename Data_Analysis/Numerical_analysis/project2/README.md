@@ -27,7 +27,7 @@ If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A
         [ 0 1 2 δ ]       ( -5 )     
 
 , x = $𝐴^{-1}𝐵$ can be obtained and true x value can be found. Therefore, it was confirmed that x is the following result.    
-    x = ${ [1.5124959, -1.9743733,  3.53518394, -5.72930549] }^{T}$
+    x = ${ [1.5124959, -1.9743733, 3.53518394, -5.72930549] }^{T}$
 
 #### 2) Use the following methods to find out the solution, and measure the true relative errors.
 ##### A. Naïve Gaussian elimination
