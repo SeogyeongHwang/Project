@@ -7,7 +7,7 @@
      [ 0 1 2 δ ] ( x4 )   ( -5 )
 (The following is the result of substituting δ=0.1)    
     
-#### 1) Find the true solution of x = ${{x_{1}, x_{2}, x_{3}, x_{4}}}^{T}$ using matrix inversion
+#### 1) Find the true solution of x = ${ {x_{1}, x_{2}, x_{3}, x_{4}} }^{T}$ using matrix inversion
     
 If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A and B arrays as follows and finds the x-solution vector through the inversion method. When you run the code, below is the result.
 
