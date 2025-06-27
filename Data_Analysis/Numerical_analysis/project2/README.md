@@ -178,12 +178,12 @@ On the other hand, when comparing the results of applying the roundoff error, on
 
 4. Since $\delta$ = 0.1 is added, the difference between what was pivoted and what was not pivoted is not noticeable, but if a very small $\delta$ is added, Gaussian elimination can diverge if pivoted is not performed.   
 The two results of applying the roundoff error when $\delta = {10}^{-10}$ were as follows.
-- Without Pivoting
-  $$x = {[Nan, Nan, Nan, Nan]}^{T}$$
+     - Without Pivoting
+       $$x = {[Nan, Nan, Nan, Nan]}^{T}$$
   
-- With Pivoting
-  $$x = {[1.3999, -1.3999, 3.1999, -5.1998]}^{T}$$    
-  $$error = {[7.143 x {10}^{-5}, 7.143 x {10}^{-5}, 3.125 x {10}^{-5}, 3.846 x {10}^{-5}]}^{T}$$   
+     - With Pivoting    
+       $$x = {[1.3999, -1.3999, 3.1999, -5.1998]}^{T}$$    
+       $$error = {[7.143 x {10}^{-5}, 7.143 x {10}^{-5}, 3.125 x {10}^{-5}, 3.846 x {10}^{-5}]}^{T}$$   
 
 4. The Gauss-Seidel method requires that in order to converge, the value of the diagonal of the matrix must be greater than the sum of the absolute values of the remaining elements of the same matrix. However, a given matrix could not find a solution because the diagonal value was not larger even when pivoted.
    
@@ -256,10 +256,54 @@ If you find the coefficient of linear regression and plot it, result is below.
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D100).png)        
 
 ##### B. Polynomial Regression    
+```python
+def polynomial_regression(self, x, y, degree):
+     y = np.array(y)
+
+     n = x.size
+     sum_x = np.sum(x)
+     sum_y = np.sum(y)
+     sum_xy = np.sum(x*y)
+     sum_x2 = np.sum(x**2)
+
+     z = np.ones((n, 1))
+     for i in range(1, degree + 1):
+          z = np.concatenate([z, x.reshape(n, 1)**i], axis=1)
+     print("\nz 함수\n")
+     print(z)
+     a_vec = np.linalg.inv(z.T @ z) @ z.T @ y
+     y_predic = z @ a_vec
+     r = np.sqrt(1 - (np.sum((y - y_predic)**2) / np.sum((y - np.mean(y))**2)))
+
+     return a_vec, r
+```
 If the coefficient of the Polynomial Regression can be obtained and plotted accordingly, the result when degree = 2 is as follows.    
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D2).png)     
 
 ##### C. Non-linear Regression    
+```python
+def NonLinear_regression(self, x, y): 
+    y = np.array(y) 
+ 
+    positive_mask = x > 0 
+    x = x[positive_mask] 
+    y = y[positive_mask] 
+ 
+    n = np.size(np.log(x)) 
+    sum_x = np.sum(x) 
+    sum_y = np.sum(y) 
+    sum_logxy = np.sum(np.log(x) * np.log(y)) 
+    sum_logx2 = np.sum(np.log(x)**2) 
+    sum_logy2 = np.sum(np.log(y)**2) 
+    sum_logx = np.sum(np.log(x)) 
+    sum_logy = np.sum(np.log(y)) 
+ 
+    a1 = (n * sum_logxy - sum_logx * sum_logy) / (n * sum_logx2 - sum_logx**2) 
+    a0 = (sum_logy - a1 * sum_logx) / n 
+    r = (n * sum_logxy - sum_logx * sum_logy) / np.sqrt((n * sum_logx2 - sum_logx**2)*(n * sum_logy2 - sum_logy**2)) 
+ 
+    return a1, a0, r
+```
 After calculating the coefficient of the nonlineal regression, the log function in the nonlinea has a value only when x is positive, so the matrix is modified so that only the positive x remains and the coefficient is configured to be calculated. Plotting the results through this is as follows.    
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D100).png)       
 
