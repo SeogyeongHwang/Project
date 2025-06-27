@@ -7,7 +7,7 @@
      [ 0 1 2 δ ] ( x4 )   ( -5 )
 (The following is the result of substituting δ=0.1)    
     
-#### 1) Find the true solution of x = ${ {x_{1}, x_{2}, x_{3}, x_{4}} }^{T}$ using matrix inversion
+#### 1) Find the true solution of x = ${ [x_{1}, x_{2}, x_{3}, x_{4}] }^{T}$ using matrix inversion
     
 If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A and B arrays as follows and finds the x-solution vector through the inversion method. When you run the code, below is the result.
 
@@ -132,11 +132,11 @@ The Gauss-Seidel method does not have convergence, so do not attach the result v
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/a5f143b66ba3fdbcf2880bc35f508ac15db40c6b/Data_Analysis/Numerical_analysis/project2/Q2_Results/PDF%26CDF.jpg)    
 
 #### 1) Generate the N x 1 data x having the normal distribution using np.random.normal() function with mean=0, standard deviation=4.    
-
+```python
     def normal_distribution(self, N, mean=0, std_dev=4): 
         x = np.random.normal(mean, std_dev, N) 
         return x 
-
+```
 Above method was created to generate data.    
 
 #### 2) Design the function for CDF of **x** , i.e., y = CDF(x) = $F_{x}(x)$ = P[ **x** $\leq$ x]. The probability can be simply obtained by counting the number of elements which satisfies **x** $\leq$ x.    
