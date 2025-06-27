@@ -45,7 +45,33 @@ $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$
 $$error = {[5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16}]}^{T}$$    
     
 ##### B. Gaussian elimination with pivoting    
+```python
+def GaussianElimination_Pivotting(self):
+     n = np.size(self.b)
+     Aug = np.concatenate((self.A, self.b), axis=1)
 
+     # pivotting
+     max_idx = np.argmax(self.A[:,0])
+     Aug[[0, max_idx], :] = Aug[[max_idx,0], :]
+
+     # Forward
+     for k in range(0, n-1):
+          for i in range(k+1, n):
+               coeff = Aug[i, k] / Aug[k, k]
+               Aug[i, k:n+1] = Aug[i, k:n+1] - coeff * Aug[k, k:n+1]
+
+     # Backward
+     x = np.zeros((n, 1))
+     x[n-1] = Aug[n-1, n] / Aug[n-1, n-1]
+     for i in range(n-2, -1, -1):
+          x[i] = (Aug[i, n] - Aug[i, i+1:n] @ x[i+1:n]) / Aug[i, i]
+
+     # true_relative error
+     true_value = self.inversion()
+     error = np.abs((x - true_value) / true_value)
+
+     return x, error
+```
 'GaussianElimination Pivotting' code that adds only the pivoting part of A's Gaussian Elimination code. In order to prevent the order of the equations from affecting the operation results, pivotting was added in the above method. Below is the pivotting result of the matrix connected by A and B.
 
      [ 8 2 δ 2 -2 ] 
@@ -94,7 +120,7 @@ For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient m
 So it shows ***"This is not diagonally dominant"*** for the result.    
 
 #### 3) Consider the round-off error during the computation in Problem-2). Rounding operation can be easily implemented by np.round() function.    
-Example: np.round(value, decimals = k) ,    <p><$\color{#5ad7b7}\(The\ result\ when\ decimal\ is\ 4)$</p>    
+Example: np.round(value, decimals = k) ,  (The result when decimal is 4)   
 
 ##### A. Naïve Gaussian Elimination    
 ```python
@@ -134,29 +160,41 @@ The following results are obtained for the same reason as in 2).
 #### 4) Analyze the results caused by round-off errors for various schemes.    
 
 1. In Naïve Gaussian Elimination, which did not take into account the roundoff error, it was confirmed that the final solution was very similar to the true value, so it had a very small true relative error.    
-$$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
-$$error = {[5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16}]}^{T}$$    
+$$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$   
+$$error = {[5.432 x {10}^{-15}, 5.931 x {10}^{-16}, 1.256 x {10}^{-16}, 7.7512 x {10}^{-16}]}^{T}$$
+ 
 This indicates that it is numerically stable when rounding is not applied.    
 However, if you check the results when considering the round off error, you can see that the solution value changes slightly and the relative error value becomes larger.
-$$x = {[1.511, -1.4974, 3.5352, -5.7293]}^{T}$$ 
-$$error = {[9.89 x {10}^{-4}, 2.4926 x {10}^{-5}, 4.544 x {10}^{-6}, 9.58 x {10}^{-7}]}^{T}$$       
+$$x = {[1.511, -1.4974, 3.5352, -5.7293]}^{T}$$   
+$$error = {[9.89 x {10}^{-4}, 2.4926 x {10}^{-5}, 4.544 x {10}^{-6}, 9.58 x {10}^{-7}]}^{T}$$
+
 This suggests that the Naïve Gaussian Elimination method is sensitive to precision.    
     
 3. If you check the results of the Gaussian elimination method to which pivotting was applied, you can see that a slightly larger error occurred compared to the one to which pivoting was not applied.
-$$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
-$$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x {10}^{-15}]}^{T}$$    
+$$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$    
+$$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x {10}^{-15}]}^{T}$$
+  
 On the other hand, when comparing the results of applying the roundoff error, one side of pivoting showed a smaller error.    
 
-4. Since $\delta$ = 0.1 is added, the difference between what was pivoted and what was not pivoted is not noticeable, but if a very small $\delta$ is added, Gaussian elimination can diverge if pivoted is not performed.
+4. Since $\delta$ = 0.1 is added, the difference between what was pivoted and what was not pivoted is not noticeable, but if a very small $\delta$ is added, Gaussian elimination can diverge if pivoted is not performed.   
+The two results of applying the roundoff error when $\delta = {10}^{-10}$ were as follows.
+- Without Pivoting
+  $$x = {[Nan, Nan, Nan, Nan]}^{T}$$
+  
+- With Pivoting
+  $$x = {[1.3999, -1.3999, 3.1999, -5.1998]}^{T}$$    
+  $$error = {[7.143 x {10}^{-5}, 7.143 x {10}^{-5}, 3.125 x {10}^{-5}, 3.846 x {10}^{-5}]}^{T}$$   
 
+4. The Gauss-Seidel method requires that in order to converge, the value of the diagonal of the matrix must be greater than the sum of the absolute values of the remaining elements of the same matrix. However, a given matrix could not find a solution because the diagonal value was not larger even when pivoted.
+   
 5. Considering the Roundoff error, it can be seen that larger values of decimal make the solution more accurate and smaller values of true relative errors.    
 Unlike above, below is the result of giving decimal a value of 10.
-+ A. Naïve Gaussian elimination
-  $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
-  $$error = {[4.6 x {10}^{-10}, 3.79 x {10}^{-11}, 6.7054 x {10}^{-11}, 6.5173 x {10}^{-11}]}^{T}$$
-+ B. Gaussian elimination with pivoting
-  $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
-  $$error = {[6.8875 x {10}^{-11}, 1.624 x {10}^{-10}, 4.61 x {10}^{-11}, 5.7 x {10}^{-11}]}^{T}$$
+     + A. Naïve Gaussian elimination
+       $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
+       $$error = {[4.6 x {10}^{-10}, 3.79 x {10}^{-11}, 6.7054 x {10}^{-11}, 6.5173 x {10}^{-11}]}^{T}$$
+     + B. Gaussian elimination with pivoting
+       $$x = {[1.5124959, -1.49743733, 3.53518394, -5.72930549]}^{T}$$ 
+       $$error = {[6.8875 x {10}^{-11}, 1.624 x {10}^{-10}, 4.61 x {10}^{-11}, 5.7 x {10}^{-11}]}^{T}$$
     
 The Gauss-Seidel method does not have convergence, so do not attach the result value separately.    
 
@@ -168,19 +206,52 @@ The Gauss-Seidel method does not have convergence, so do not attach the result v
 
 #### 1) Generate the N x 1 data x having the normal distribution using np.random.normal() function with mean=0, standard deviation=4.    
 ```python
-    def normal_distribution(self, N, mean=0, std_dev=4): 
-        x = np.random.normal(mean, std_dev, N) 
-        return x 
+def normal_distribution(self, N, mean=0, std_dev=4): 
+     x = np.random.normal(mean, std_dev, N) 
+     return x 
 ```
 Above method was created to generate data.    
 
 #### 2) Design the function for CDF of **x** , i.e., y = CDF(x) = $F_{x}(x)$ = P[ **x** $\leq$ x]. The probability can be simply obtained by counting the number of elements which satisfies **x** $\leq$ x.    
 #### 3) Set N = 100. Pick the random number $x_{i} \in$ (-10, 10), and find $y_{i} = CDF(x_{i}$). Then, draw the scattered plot for ($x_{i}, y_{i}$), | = 1, ..., 15.    
+```python
+def calculate_cdf(self, data, x_value):
+     sum = 0
+     for x in data:
+          if x <= x_value:
+               sum += 1
+     value = sum / len(data)
+     return value
+
+def design_CDF(self, N):
+     data = self.normal_distribution(N)
+     nums = np.random.uniform(-10, 10, 15)
+     cdf_values = []
+     for x in nums:
+          cdf_values.append(self.calculate_cdf(data, x))
+     return nums, cdf_values
+```
 The 'calculate_cdf' method was created so that the value of all elements smaller than x specified by Data was the CDF(x) value, and the CDF_values values were saved in the form of a list in the 'design_CDF' method. After N = 100, the plot graph is as follows.    
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Scatter%20plot%20of%20CDF%20values.png)    
 
 #### 4) Fit the data ($x_{i}, y_{i}$) using the linear, polynomial, and non-linear regression methods, and measure the coefficient of determination for each method.    
 ##### A. Linear Regression    
+```python
+def linear_regression(self, x, y):
+     y = np.array(y)
+
+     n = np.size(x)
+     sum_x = np.sum(x)
+     sum_y = np.sum(y)
+     sum_xy = np.sum(x*y)
+     sum_x2 = np.sum(x**2)
+     sum_y2 = np.sum(y**2)
+
+     a1 = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x ** 2)
+     a0 = (sum_y - a1 * sum_x) / n
+     r = (n * sum_xy - sum_x * sum_y) / (np.sqrt(n ** sum_x2 - sum_x ** 2) * np.sqrt(n * sum_y2))
+     return a1, a0, r
+```
 If you find the coefficient of linear regression and plot it, result is below.    
 ![Alt_text](https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D100).png)        
 
