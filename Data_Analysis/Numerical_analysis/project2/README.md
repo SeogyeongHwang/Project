@@ -66,7 +66,30 @@ $$error = {[2.2021 x {10}^{-15}, 3.707 x {10}^{-15}, 1.13 x {10}^{-15}, 1.395 x 
 
 
 ##### C. Gauss-Siedel method    
+```python
+def Gauss_Seidal(self, max_iter = 100, eps = 0.01):
+     # check convergence for Gauss-Seidel method
+     for i in range(len(self.b)):
+          sum_row = 0
+          for j in range(len(self.A)):
+               if (j != i):
+                    sum_row += np.abs(self.A[i][j])
+          if np.abs(self.A[i][i]) < sum_row:
+               return ("This is not diagonally dominant")
 
+     n = np.size(self.b)
+     x_old = np.zeros((n, 1))
+     x_new = np.zeros((n, 1))
+
+     for iter in range(max_iter):
+          for i in range(n):
+               x_new[i] = (self.b[i] - ((self.A[i, :i] @ x_new[:i]) + (self.A[i, i+1:] @ x_old[i+1:]))) / self.A[i, i]
+          x_old = x_new.copy()
+
+          if np.sum((self.A @ x_new - self.b.T)**2) ** 0.5 < eps or iter == max_iter-1:
+               return x_new
+     return x_new
+```
 For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient must be greater than the absolute value of the coefficients in the other same row. However, a given matrix does not satisfy this. So it shows ***"This is not diagonally dominant"*** for the result.    
 
 #### 3) Consider the round-off error during the computation in Problem-2). Rounding operation can be easily implemented by np.round() function.    
@@ -74,18 +97,18 @@ Example: np.round(value, decimals = k) ,    (The result when decimal is 4)
 
 ##### A. Naïve Gaussian Elimination    
 ```python
-    # Forward 
-    for k in range(0, n-1): 
-      for i in range(k+1, n): 
-       coeff = Aug[i, k] / Aug[k, k] 
-       Aug[i, k:n+1] = Aug[i, k:n+1] - coeff * Aug[k, k:n+1] 
-       Aug = np.round(Aug, decimals=decimals) 
+# Forward 
+for k in range(0, n-1): 
+     for i in range(k+1, n): 
+          coeff = Aug[i, k] / Aug[k, k] 
+          Aug[i, k:n+1] = Aug[i, k:n+1] - coeff * Aug[k, k:n+1] 
+          Aug = np.round(Aug, decimals=decimals) 
  
-    # Backward 
-    x = np.zeros((n, 1)) 
-    x[n-1] = Aug[n-1, n] / Aug[n-1, n-1] 
-    x[n-1] = np.round(x[n-1], decimals = decimals) 
-    for i in range(n-2, -1, -1): 
+# Backward 
+x = np.zeros((n, 1)) 
+x[n-1] = Aug[n-1, n] / Aug[n-1, n-1]
+x[n-1] = np.round(x[n-1], decimals = decimals) 
+for i in range(n-2, -1, -1): 
      x[i] = (Aug[i, n] - Aug[i, i+1:n] @ x[i+1:n]) / Aug[i, i] 
      x[i] = np.round(x[i], decimals = decimals) 
 ```
