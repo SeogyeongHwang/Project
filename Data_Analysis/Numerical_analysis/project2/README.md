@@ -62,7 +62,7 @@ For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient m
 Example: np.round(value, decimals = k) ,    (The result when decimal is 4)    
 
 ##### A. Naïve Gaussian Elimination    
-
+```python
     # Forward 
     for k in range(0, n-1): 
       for i in range(k+1, n): 
@@ -77,6 +77,7 @@ Example: np.round(value, decimals = k) ,    (The result when decimal is 4)
     for i in range(n-2, -1, -1): 
      x[i] = (Aug[i, n] - Aug[i, i+1:n] @ x[i+1:n]) / Aug[i, i] 
      x[i] = np.round(x[i], decimals = decimals) 
+```
 
 The roundoff error was considered as follows using the np.round method in code 2. The results accordingly are as follows.    
 $$x = {[1.511, -1.4974, 3.5352, -5.7293]}^{T}$$ 
