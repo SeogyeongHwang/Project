@@ -90,10 +90,11 @@ def Gauss_Seidal(self, max_iter = 100, eps = 0.01):
                return x_new
      return x_new
 ```
-For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient must be greater than the absolute value of the coefficients in the other same row. However, a given matrix does not satisfy this. So it shows ***"This is not diagonally dominant"*** for the result.    
+For the Gauss-Siedel method to converge, the value of the [i, i]th coefficient must be greater than the absolute value of the coefficients in the other same row. However, a given matrix does not satisfy this.   
+So it shows ***"This is not diagonally dominant"*** for the result.    
 
 #### 3) Consider the round-off error during the computation in Problem-2). Rounding operation can be easily implemented by np.round() function.    
-Example: np.round(value, decimals = k) ,    (The result when decimal is 4)    
+Example: np.round(value, decimals = k) ,    <p><$\color{#5ad7b7}\(The\ result\ when\ decimal\ is\ 4)$</p>    
 
 ##### A. Naïve Gaussian Elimination    
 ```python
