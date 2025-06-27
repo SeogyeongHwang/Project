@@ -8,7 +8,17 @@
 (The following is the result of substituting δ=0.1)    
     
 #### 1) Find the true solution of x = ${ [x_{1}, x_{2}, x_{3}, x_{4}] }^{T}$ using matrix inversion
-    
+```python
+def __init__(self, lamb):
+     self.A = np.array([[lamb, 3, 2, 1], [4, lamb, 7, 5], [8, 2, lmab, 2], [0, 1, 2, lamb]])
+     self.b = np.array([[-3, 2, -2, 5]]).T
+     return
+
+def inversion(self):
+     A_inv = np.lianlg.inv(self.A)
+     x = A.inv @ self.b
+     return x
+```    
 If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A and B arrays as follows and finds the x-solution vector through the inversion method. When you run the code, below is the result.
 
         [ δ 3 2 1 ]       ( -3 )
@@ -17,7 +27,8 @@ If we check def '__init__', 'inversion' in Q2 class, these part summarizes the A
         [ 0 1 2 δ ]       ( -5 )     
 
 , x = $𝐴^{-1}𝐵$ can be obtained and true x value can be found. Therefore, it was confirmed that x is the following result.    
-    
+    x = ${ [1.5124959, -1.9743733, 3.53518394, -5.72930549] }^{T}$
+
 #### 2) Use the following methods to find out the solution, and measure the true relative errors.
 ##### A. Naïve Gaussian elimination
 
