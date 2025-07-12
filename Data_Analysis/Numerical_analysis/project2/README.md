@@ -311,23 +311,23 @@ After calculating the coefficient of the nonlineal regression, the log function 
 Looking at the results plotted by changing N, the results above were N = 100, and the results plotted by changing N are graphs plotting linear, polynomial, and non-linear regression results, respectively.     
 ##### (1) N = 25,    
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D25).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D25%2C%20degree%3D2).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D25).png" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D25).png" width="33%" height="300%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D25%2C%20degree%3D2).png" width="33%" height="300%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D25).png" width="33%" height="300%">
    </p>
 
 ##### (2) N = 50    
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D50).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D50%2C%20degree%3D2).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D50).png" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D50).png" width="33%" height="300%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D50%2C%20degree%3D2).png" width="33%" height="300%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D50).png" width="33%" height="300%">
    </p>
 
 ##### (3) N = 150    
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D150).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D150%2C%20degree%3D2).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D150).png" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Linear%20Regression(N%3D150).png" width="33%" height="300%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D150%2C%20degree%3D2).png" width="33%" height="300%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Non-linear%20Regression(N%3D150).png" width="33%" height="300%">
    </p>
 
 Looking at the graphs that change as the value of N is changed, the number of sample data increases, so the shape of the graph appears more accurately along the points with a little more scatter plot. Looking at the outline alone, assuming that the degree of the polynomial regression is set to 2, it can be seen that the non-linear regression shows only the positive portion of the graph, but the non-linear is the most accurate along the points.    
@@ -335,10 +335,10 @@ Looking at the graphs that change as the value of N is changed, the number of sa
 #### 6) Maximize the regression performance as much as you can.    
 In order to increase the regression performance, the degree of the polynomial regression was increased.     
 <p float="left">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D3).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D6).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D4).png" width="49%" height="49%">
-   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D10).png" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D3).png" width="49%" height="450%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D6).png" width="49%" height="450%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D4).png" width="49%" height="450%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/898aa890a375d8d196415ebb8fb3c58920d8afdd/Data_Analysis/Numerical_analysis/project2/Q2_Results/Polynomial%20Regression(N%3D100%2C%20degree%3D10).png" width="49%" height="450%">
    </p>
     
 These figures are in order when degree=3, 6, 4, and 10. As you can see from the graph alone, the higher the degree of degrease, the more accurate the performance of the regression becomes and the line passes through every point.
