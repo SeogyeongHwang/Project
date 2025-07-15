@@ -85,6 +85,12 @@ There is some disk activity when playing YouTube videos, and there is no disk ac
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/ee138d53ac29d2f667f1f551a96a90f411899e9c/Data_Analysis/Resource%20profiling/Plots/Plot_networkWC.jpg" width="49%" height="49%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/ee138d53ac29d2f667f1f551a96a90f411899e9c/Data_Analysis/Resource%20profiling/Plots/Plot_networkYoutube.jpg" width="49%" height="49%">
+  <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_memWC.jpg" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_memYoutube.jpg" width="49%" height="49%">
+  <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_diskWC.jpg" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_diskYoutube.jpg" width="49%" height="49%">
+  <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_cpuWC.jpg" width="49%" height="49%">
+   <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_cpuYoutube.jpg" width="49%" height="49%">
    </p>
 
    
