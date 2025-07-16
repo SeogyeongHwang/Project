@@ -76,11 +76,17 @@ There is some disk activity when playing YouTube videos, and there is no disk ac
    
 #### Method
 
-      1) network_plot : 
-      2) mem_data : 
-      3) disk_data : 
-      4) cpu_data : 
-      5) data_plot :
+These are functions in class I made in Python code for plotting resource information measured when playing wc commands and YouTube videos. After creating a function that extracts desired information from the network, memory, disk data, and CPU, respectively, a function to be plotted is configured separately so that the necessary function can be called and used.
+
+      1) network_plot
+      2) mem_data
+      3) disk_data
+      4) cpu_data
+      5) data_plot
+
+In the case f the network, in order to construct a graph with two types of information on the y-axis, the network is configured to extract and plot information in the network function without using a data_plot function.   
+Overall, the configuration of the functions above is the same, but only the mem_dat6 function uses 'next (file)', which is to skip unnecessary rows to obtain only the rows with the desired number.   
+In the process of putting the name in the title of the graph, Korean letters were broken, so a code to prevent this from being broken was added to the top of the code, and the 'now.strftime' function was used to include time information in the title.
 
 <p float="left">
    <img src="https://github.com/SeogyeongHwang/Project/blob/ee138d53ac29d2f667f1f551a96a90f411899e9c/Data_Analysis/Resource%20profiling/Plots/Plot_networkWC.jpg" width="49%" height="49%">
@@ -92,6 +98,8 @@ There is some disk activity when playing YouTube videos, and there is no disk ac
   <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_cpuWC.jpg" width="49%" height="49%">
    <img src="https://github.com/SeogyeongHwang/Project/blob/bfb7df2c2ffc77e507cb1a6088b52f7dbc9b9380/Data_Analysis/Resource%20profiling/Plots/Plot_cpuYoutube.jpg" width="49%" height="49%">
    </p>
+
+What is described in step 3 can be seen in the graph of step 4. Network, memory, disk data, and cpu are in order, with the left side being wc and the right side being the YouTube graph. The plot results also clearly show that playing YouTube videos takes up more resources overall.
 
    
 
