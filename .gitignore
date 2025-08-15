@@ -1,0 +1,18 @@
+@"
+# Unity (모든 하위 경로)
+**/[Ll]ibrary/
+**/[Pp]ackageCache/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Ll]ogs/
+**/[Bb]uild*/
+**/UserSettings/
+**/MemoryCaptures/
+*.unitypackage
+
+# IDE
+.vs/
+.idea/
+*.csproj
+*.sln
+"@ | Out-File -Encoding utf8 .gitignore
