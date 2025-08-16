@@ -7,13 +7,13 @@ using System.Text;
 using System;
 using NUnit.Framework;
 using Random = UnityEngine.Random;
-using System.Net;   // 네트워크 관련 라이브러리 추가
+// Add libraries for connection
+using System.Net; 
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections;
 
 
-// 게임 상태 (시뮬레이션 중, 대기, 종료)
 public enum GameState
 {
     WaitingForAction,
@@ -21,7 +21,6 @@ public enum GameState
     End
 }
 
-// 충돌 이벤트 기록 : 쿠션, 빨간공, 노란공에 대한 터치 이벤트
 public enum EventType 
 { 
     Cushion, 
@@ -33,29 +32,27 @@ public class MainManager : basicSingleton<MainManager>
 {
     public int episode;
 
-    // UI 요소
+    // UI
     public Slider timeSlider;
     public TMP_Text timeSliderText;
     public TMP_Text episodeText;
     public TMP_Text detailText;
     public Toggle autostartToggle;
 
-    // 공 객체들
     public List<Ball> balls;
 
-    // 시뮬레이션 중 기록되는 정보
     public List<BallType> touchedBallType;
-    // 충돌 이벤트 순서 기록
+    // Order of the events
     public List<EventType> eventLog = new List<EventType>();
     public int cushionCount = 0;
 
     public GameState state;
 
     public List<Vector2> currentStartPos;
-    private List<Vector2> lastTriedStartPos; // 실패 시 복구용 백업
-    // 미리 정의한 위치 리스트
+    // Backup if it failed
+    private List<Vector2> lastTriedStartPos;
     public List<List<Vector2>> predefinedPositions = new List<List<Vector2>>();
-    // 현재 위치 인덱스
+    // Current position index
     public int positionIndex = 0;
 
     public float currentAngle;
@@ -66,7 +63,7 @@ public class MainManager : basicSingleton<MainManager>
     private string filePath;
     float baseFixedDeltaTime;
 
-    // tcp 관련 변수
+    // For TCP
     private TcpListener tcpListener;
     private Thread listenerThread;
     private TcpClient connectedClient;
@@ -86,7 +83,7 @@ public class MainManager : basicSingleton<MainManager>
         if (balls == null || balls.Count == 0)
         {
             balls = new List<Ball>(FindObjectsOfType<Ball>());
-            Debug.Log($"[Awake] 자동으로 공 {balls.Count}개 로드됨");
+            Debug.Log($"[Awake] {balls.Count} balls are loaded automatically");
         }
 
         if (!File.Exists(filePath))
@@ -98,7 +95,7 @@ public class MainManager : basicSingleton<MainManager>
 
             InitializePositions();
         }
-        // 가장 마지막 에피소드 번호 계산
+        // Calculate the last episode number
         else
         {
             string lastLine = null;
@@ -142,21 +139,15 @@ public class MainManager : basicSingleton<MainManager>
 
     void Start()
     {
-        // 시간 스케일 초기화
+        // Initialize time scale
         baseFixedDeltaTime = Time.fixedDeltaTime;
         if (timeSlider != null)
         {
             timeSlider.onValueChanged.AddListener(OnSpeedChanged);
             OnSpeedChanged(1);
         }
-        //if (currentStartPos == null) InitializePositions(); // 공 초기 위치 설정
-        // ✅ 수동으로 공 위치 설정 (예: 성공한 위치 직접 입력)
-        /*currentStartPos = new List<Vector2>()
-        {
-            new Vector2(3.74f, 0.95f),  // White ball
-            new Vector2(-0.93f, 0.72f),   // Red ball
-            new Vector2(5.44f, 1.75f)   // Yellow ball
-        };*/
+
+        // Set the balls' position to the succeded position
         predefinedPositions = new List<List<Vector2>>
         {
             new List<Vector2> {new Vector2(3.74f, 0.95f), new Vector2(-0.93f, 0.72f), new Vector2(5.44f, 1.75f)},
@@ -433,14 +424,12 @@ public class MainManager : basicSingleton<MainManager>
         };
         positionIndex = 0;
         currentStartPos = new List<Vector2>(predefinedPositions[positionIndex]);
-        // 새로운 시뮬레이션 시작
-        //NewEpisode(true);
         PrepareNewEpisode();
     }
 
     private void FixedUpdate()
     {
-        // 모든 공이 멈췄으면 종료 처리
+        // Finish the episode if all the balls stopped
         if (state == GameState.Simulation && balls[0].isStopped() && balls[1].isStopped() && balls[2].isStopped())
         {
             state = GameState.End;
@@ -455,7 +444,7 @@ public class MainManager : basicSingleton<MainManager>
             HandleTCPMessage(message);
         }
 
-        // 결과 UI 설정
+        // Result UI
         if (state != GameState.End)
         {
             string touchedBall = "";
@@ -470,7 +459,7 @@ public class MainManager : basicSingleton<MainManager>
                 else
                     touchedBall = "Red, Yellow";
             }
-            // 실패 여부 판단
+            // Check failure or not
             int score = IsFailure() ? 0 : 1;
             float reward = 0f;
 
@@ -523,7 +512,7 @@ public class MainManager : basicSingleton<MainManager>
     {
         if (state == GameState.Simulation) {
             cushionCount += 1;
-            // 쿠션 순서 기록
+            // The order of cushions
             eventLog.Add(EventType.Cushion);
         }
     }
@@ -535,11 +524,11 @@ public class MainManager : basicSingleton<MainManager>
         if (!touchedBallType.Contains(type))
             touchedBallType.Add(type);
 
-        // 충돌 순서 기록
+        // The order of collisions
         if (type == BallType.Red) eventLog.Add(EventType.BallRed);
         if (type == BallType.Yellow) eventLog.Add(EventType.BallYellow);
 
-        // 조기 종료 조건: 3쿠션 전에 두 공을 모두 맞춘 경우
+        // Condition of early finishing(If main ball hit the two different balls before hit the wall 3 times)
         int cushions = 0;
         bool redHit = false, yellowHit = false;
 
@@ -562,13 +551,14 @@ public class MainManager : basicSingleton<MainManager>
         if ((redHit && yellowHit) && state != GameState.End)
         {
             state = GameState.End;
-            EndGame();  // 조기 종료
+            // Early finishing
+            EndGame();
         }
     }
 
     void EndGame()
     {
-        // 실패 여부 판단
+        // Check failure or not
         int score = IsFailure() ? 0 : 1;
         float reward = 0f;
 
@@ -597,27 +587,6 @@ public class MainManager : basicSingleton<MainManager>
         }
         
         LogData(score, reward);
-        /*
-        if (balls.Count > 0 && balls[0] != null)
-        {
-            var agent = balls[0].GetComponent<BilliardAgent>();
-            if (agent != null)
-            {
-                agent.SetReward(reward);
-                agent.EndEpisode();
-            }
-        }
-        
-        if (autostartToggle.isOn || autostartToggle == null)
-        {
-            if (score == 1)
-            {
-                InitializePositions();
-            }
-            episode++;
-            //NewEpisode(score == 1);
-        }*/
-
         if (clientConnected && stream != null)
         {
             bool redTouched = touchedBallType.Contains(BallType.Red);
@@ -635,14 +604,13 @@ public class MainManager : basicSingleton<MainManager>
         bool success = (score == 1);
         if (success) positionIndex++;
         PrepareNewEpisode();
-        //PrepareNewEpisode();
     }
 
     bool IsFailure()
     {
 
-         // 실패 조건 1: 쿠션 3개 이전에 공 2개 맞춤
-        // 실패 조건 2: 모든 공 멈췄는데 공 2개를 맞추지 못함
+        // Failure condition 1: hit with two other balls before hit the wall for 3 times
+        // Failure condition 2: If it didn't hit two other balls before it stoppeds
 
         int cushions = 0;
         int ballsHitBefore3Cushion = 0;
@@ -664,11 +632,11 @@ public class MainManager : basicSingleton<MainManager>
                 if (cushions < 3) ballsHitBefore3Cushion++;
                 yellowHit = true;
             }
-
-            if (ballsHitBefore3Cushion >= 2) return true; // 3쿠션 전에 두 공 맞춤 → 실패
+            // Hit two other balls before hit the ball for 3 times → Failure
+            if (ballsHitBefore3Cushion >= 2) return true;
         }
-
-        if (!(redHit && yellowHit)) return true; // 공 두 개를 맞추지 못함 → 실패
+        // If it didn't hit two other balls → Failure
+        if (!(redHit && yellowHit)) return true;
 
         return false;
     }
@@ -678,21 +646,12 @@ public class MainManager : basicSingleton<MainManager>
         touchedBallType.Clear();
         cushionCount = 0;
         eventLog.Clear();
-        /*
-        if (useLastPosition && lastTriedStartPos != null && lastTriedStartPos.Count == 3)
-        {
-            currentStartPos = new List<Vector2>(lastTriedStartPos);
-        }
-        else
-        {*/
-            //InitializePositions();
-            //positionIndex++;
+        
         if (positionIndex < predefinedPositions.Count)
         {
             currentStartPos = new List<Vector2>(predefinedPositions[positionIndex]);
         }
         else if (positionIndex >= predefinedPositions.Count) {
-                //InitializePositions();
             positionIndex = 0;
             List<Vector2> basePos = predefinedPositions[positionIndex];
             currentStartPos = new List<Vector2>(basePos);
@@ -710,17 +669,7 @@ public class MainManager : basicSingleton<MainManager>
 
             predefinedPositions[positionIndex] = new List<Vector2>(currentStartPos);
         }
-        //}
-        /*
-        if (!useLastPosition)
-        {
-            lastTriedStartPos = new List<Vector2>();
-            foreach (Ball ball in balls)
-            {
-                lastTriedStartPos.Add(ball.transform.position);
-            }
-        }*/
-
+        
         SendCurrentPositions();
         state = GameState.WaitingForAction;
         
@@ -744,14 +693,7 @@ public class MainManager : basicSingleton<MainManager>
             Debug.LogWarning("[ExecuteEpisode] Not ready for action.");
             return;
         }
-        /*
-        lastTriedStartPos = new List<Vector2>();
-        foreach (Ball ball in balls)
-        {
-            lastTriedStartPos.Add(ball.transform.position);
-        }*/
 
-        //SetAction(angle, force);
         episodeText.text = $"Episode {episode}";
 
         if (currentForce >= 8f && currentForce <= 30f && currentAngle >= 0f && currentAngle <= 360f)
@@ -763,14 +705,14 @@ public class MainManager : basicSingleton<MainManager>
         else
         {
             Debug.LogWarning($"[Shoot BLOCKED] invalid force/angle: angle={currentAngle}, force={currentForce}");
-            // 다시 위치 보내고 대기
+            // Waiting after sending the location
             PrepareNewEpisode();
         }
     }
 
     void InitializePositions()
     {
-        // 공이 겹치지 않도록 초기 위치 설정
+        // Set initial position so that it can prevent the balls from overlapping
         currentStartPos = new List<Vector2>();
         for (int i = 0; i < 3; i++)
         {
@@ -802,7 +744,7 @@ public class MainManager : basicSingleton<MainManager>
             currentStartPos.Add(p);
             balls[i].transform.position = p;
         }
-        // 초기 위치 저장
+        // Save the initial position
         lastTriedStartPos = new List<Vector2>(currentStartPos);
 
         for (int i = 0; i < balls.Count; i++)
@@ -810,8 +752,8 @@ public class MainManager : basicSingleton<MainManager>
             var rb = balls[i].GetComponent<Rigidbody2D>();
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
-            rb.Sleep(); // 물리 작용 멈춤
-            rb.simulated = false; // ← 물리 계산 비활성화
+            rb.Sleep(); 
+            rb.simulated = false;
         }
     }
 
@@ -846,7 +788,7 @@ public class MainManager : basicSingleton<MainManager>
 
     public void ResetEpisode(Vector2[] positions)
     {
-        // 외부에서 에피소드 초기화할 때 위치 재배치
+        // reposition the balls when they initialize the episode
         touchedBallType.Clear();
         cushionCount = 0;
         currentStartPos = new List<Vector2>(positions);
@@ -891,7 +833,6 @@ public class MainManager : basicSingleton<MainManager>
             clientConnected = true;
             Debug.Log("[TCP] Client connected.");
 
-            // 위치 전송
             SendCurrentPositions();
         }
         catch (Exception e)
@@ -911,12 +852,7 @@ public class MainManager : basicSingleton<MainManager>
                 float force = float.Parse(parts[1]);
 
                 SetAction(angle, force);
-                /*
-                //NewEpisode(true); // 외부 명령으로 새로운 에피소드 시작
-                ExecuteEpisode(angle, force);
-                //StartCoroutine(StartEpisodeDelayed(1.0f)); // 0.2초 딜레이
-                */
-                // 반드시 GameState가 WaitingForAction일 때만 실행
+                // WaitingForAction when the state is GameState
                 if (state == GameState.WaitingForAction)
                 {
                     ExecuteEpisode(angle, force);
@@ -943,9 +879,7 @@ public class MainManager : basicSingleton<MainManager>
 
         if (listenerThread != null && listenerThread.IsAlive)
         {
-            listenerThread.Abort();  // 또는 interrupt로도 가능
+            listenerThread.Abort();
         }
     }
-
-
 }
