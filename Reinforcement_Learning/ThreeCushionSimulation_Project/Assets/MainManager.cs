@@ -6,17 +6,16 @@ using System.IO;
 using System.Text;
 using System;
 using NUnit.Framework;
-using Unity.MLAgents; // ML-Agents 사용
 using Random = UnityEngine.Random;
 
-// 게임 상태 (시뮬레이션 중, 대기, 종료)
+// Game State
 public enum GameState
 {
     Simulation,
     End
 }
 
-// 충돌 이벤트 기록 : 쿠션, 빨간공, 노란공에 대한 터치 이벤트
+// Check Event : Cushion, Hit red or yellow balls
 public enum EventType 
 { 
     Cushion, 
@@ -28,26 +27,24 @@ public class MainManager : basicSingleton<MainManager>
 {
     public int episode;
 
-    // UI 요소
+    // UI
     public Slider timeSlider;
     public TMP_Text timeSliderText;
     public TMP_Text episodeText;
     public TMP_Text detailText;
     public Toggle autostartToggle;
 
-    // 공 객체들
     public List<Ball> balls;
 
-    // 시뮬레이션 중 기록되는 정보
     public List<BallType> touchedBallType;
-    // 충돌 이벤트 순서 기록
+    // Check hitting event order
     public List<EventType> eventLog = new List<EventType>();
     public int cushionCount = 0;
 
     public GameState state;
 
     public List<Vector2> currentStartPos;
-    private List<Vector2> lastTriedStartPos; // 실패 시 복구용 백업
+    private List<Vector2> lastTriedStartPos; // Backup for failure
     public float currentAngle;
     public float currentForce;
     public bool lastSuccess = false;
@@ -68,7 +65,7 @@ public class MainManager : basicSingleton<MainManager>
         if (balls == null || balls.Count == 0)
         {
             balls = new List<Ball>(FindObjectsOfType<Ball>());
-            Debug.Log($"[Awake] 자동으로 공 {balls.Count}개 로드됨");
+            Debug.Log($"[Awake] Load {balls.Count} balls automatically");
         }
 
         if (!File.Exists(filePath))
@@ -80,7 +77,7 @@ public class MainManager : basicSingleton<MainManager>
 
             InitializePositions();
         }
-        // 가장 마지막 에피소드 번호 계산
+        // Check the latest episode number
         else
         {
             string lastLine = null;
@@ -124,28 +121,28 @@ public class MainManager : basicSingleton<MainManager>
 
     void Start()
     {
-        // 시간 스케일 초기화
+        // Initialize time scale
         baseFixedDeltaTime = Time.fixedDeltaTime;
         if (timeSlider != null)
         {
             timeSlider.onValueChanged.AddListener(OnSpeedChanged);
             OnSpeedChanged(1);
         }
-        if (currentStartPos == null) InitializePositions(); // 공 초기 위치 설정
-        // 새로운 시뮬레이션 시작
+        if (currentStartPos == null) InitializePositions(); // Set the balls' initial locations
+        // Start new episode
         NewEpisode(true);
     }
 
     private void FixedUpdate()
     {
-        // 모든 공이 멈췄으면 종료 처리
+        // Finish if all the balls stopped
         if (state != GameState.End && balls[0].isStopped() && balls[1].isStopped() && balls[2].isStopped())
         {
             state = GameState.End;
             EndGame();
         }
 
-        // 결과 UI 설정
+        // Result UI
         if (state != GameState.End)
         {
             string touchedBall = "";
@@ -160,7 +157,7 @@ public class MainManager : basicSingleton<MainManager>
                 else
                     touchedBall = "Red, Yellow";
             }
-            // 실패 여부 판단
+            // Check failure or not
             int score = IsFailure() ? 0 : 1;
             float reward = 0f;
 
@@ -213,7 +210,7 @@ public class MainManager : basicSingleton<MainManager>
     {
         if (state == GameState.Simulation) {
             cushionCount += 1;
-            // 쿠션 순서 기록
+            // Check cushion order
             eventLog.Add(EventType.Cushion);
         }
     }
@@ -225,11 +222,11 @@ public class MainManager : basicSingleton<MainManager>
         if (!touchedBallType.Contains(type))
             touchedBallType.Add(type);
 
-        // 충돌 순서 기록
+        // Check hitting event order
         if (type == BallType.Red) eventLog.Add(EventType.BallRed);
         if (type == BallType.Yellow) eventLog.Add(EventType.BallYellow);
 
-        // 조기 종료 조건: 3쿠션 전에 두 공을 모두 맞춘 경우
+        // Early failure conditions: Hit 2 other balls before succeeding 3 cushion
         int cushions = 0;
         bool redHit = false, yellowHit = false;
 
@@ -252,13 +249,13 @@ public class MainManager : basicSingleton<MainManager>
         if ((redHit && yellowHit) && state != GameState.End)
         {
             state = GameState.End;
-            EndGame();  // 조기 종료
+            EndGame();  // Finish episode
         }
     }
 
     void EndGame()
     {
-        // 실패 여부 판단
+        // Check failure or not
         int score = IsFailure() ? 0 : 1;
         float reward = 0f;
 
@@ -311,8 +308,8 @@ public class MainManager : basicSingleton<MainManager>
     bool IsFailure()
     {
 
-         // 실패 조건 1: 쿠션 3개 이전에 공 2개 맞춤
-        // 실패 조건 2: 모든 공 멈췄는데 공 2개를 맞추지 못함
+         // Failure condition 1: Hit two other balls before finish 3 cushion
+        // Failure condition 2: Couldn't hit two other balls before it stopped moving
 
         int cushions = 0;
         int ballsHitBefore3Cushion = 0;
@@ -335,10 +332,10 @@ public class MainManager : basicSingleton<MainManager>
                 yellowHit = true;
             }
 
-            if (ballsHitBefore3Cushion >= 2) return true; // 3쿠션 전에 두 공 맞춤 → 실패
+            if (ballsHitBefore3Cushion >= 2) return true; // Hit two balls before finish 3 cushion → failure
         }
 
-        if (!(redHit && yellowHit)) return true; // 공 두 개를 맞추지 못함 → 실패
+        if (!(redHit && yellowHit)) return true; // failed to hit two other balls → failure
 
         return false;
     }
@@ -353,12 +350,12 @@ public class MainManager : basicSingleton<MainManager>
 
         if (!success)
         {
-            // 실패했을 때 → 실패 이전 위치로 초기화
+            // When it failed → initialize to the failed location
             for (int i = 0; i < 3; i++)
             {               
                 balls[i].transform.position = lastTriedStartPos[i];
             }
-            // 실패 위치도 기록용으로 업데이트
+            // Update failure location
             currentStartPos = new List<Vector2>(lastTriedStartPos);
         }
 
@@ -368,7 +365,7 @@ public class MainManager : basicSingleton<MainManager>
             lastTriedStartPos.Add(ball.transform.position);
         }
 
-        // 임의의 angle/force 설정
+        // Set random angle/force
         GetNextAction();
         balls[0].Shoot(currentForce, currentAngle);
         state = GameState.Simulation;
@@ -376,7 +373,7 @@ public class MainManager : basicSingleton<MainManager>
 
     void InitializePositions()
     {
-        // 공이 겹치지 않도록 초기 위치 설정
+        // Initialize balls' locations so that it doesn't have same locations
         currentStartPos = new List<Vector2>();
         for (int i = 0; i < 3; i++)
         {
@@ -429,38 +426,10 @@ public class MainManager : basicSingleton<MainManager>
             writer.WriteLine(newLine);
         }
     }
-    /*
-    public Vector2[] GetRandomStartPositions()
-    {
-        // 외부에서 호출할 수 있는 위치 랜덤 생성 함수
-        List<Vector2> posList = new List<Vector2>();
-        for (int i = 0; i < 3; i++)
-        {
-            int trycount = 0;
-            Vector2 p = Vector2.zero;
-            while (trycount < 100)
-            {
-                p = new Vector2(Random.Range(-5.5f, 5.5f), Random.Range(-2.5f, 2.5f));
-                bool overlap = false;
-                foreach (Vector2 v in posList)
-                {
-                    if ((v - p).magnitude < 0.35f)
-                    {
-                        overlap = true;
-                        break;
-                    }
-                }
-                if (!overlap) break;
-                trycount++;
-            }
-            posList.Add(p);
-        }
-        return posList.ToArray();
-    }*/
 
     public void ResetEpisode(Vector2[] positions)
     {
-        // 외부에서 에피소드 초기화할 때 위치 재배치
+        // Relocation if episode starts from outside
         touchedBallType.Clear();
         cushionCount = 0;
         currentStartPos = new List<Vector2>(positions);
