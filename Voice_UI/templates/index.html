@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vehicle Audio UI</title>
+<style>
+body { font-family: Arial; background:#111; color:white; }
+.card { width:300px; margin:40px auto; padding:20px; border-radius:15px; background:#222; }
+.big { font-size:50px; text-align:center; }
+.bar { height:10px; background:#444; border-radius:10px; overflow:hidden; }
+.fill { height:100%; background:#00ffcc; width:50%; }
+button { width:100%; padding:10px; margin-top:10px; }
+.debug { color:#aaa; margin-top:10px; font-size:12px; }
+</style>
+</head>
+
+<body>
+<div class="card">
+  <div id="icon" class="big">⏹️</div>
+
+  <div>Volume: <span id="vol">5</span></div>
+  <div class="bar"><div id="fill" class="fill"></div></div>
+
+  <button onclick="sendCmd('turn on radio')">Turn On Radio</button>
+  <button onclick="sendCmd('stop radio')">Stop Radio</button>
+  <button onclick="sendCmd('increase volume')">Increase Volume</button>
+  <button onclick="sendCmd('reduce volume')">Reduce Volume</button>
+
+  <div id="debug" class="debug"></div>
+</div>
+
+<script>
+  const BASE = ""; 
+
+  async function refresh() {
+    try {
+      const res = await fetch(`${BASE}/state`, { cache: "no-store" });
+      if (!res.ok) throw new Error("state fetch failed: " + res.status);
+      const s = await res.json();
+
+      document.getElementById("icon").textContent = s.play ? "▶️" : "⏹️";
+      document.getElementById("vol").textContent = s.audio;
+      document.getElementById("fill").style.width = `${(s.audio / 10) * 100}%`;
+
+      document.getElementById("debug").textContent =
+        `state from server => play:${s.play}, audio:${s.audio}`;
+    } catch (e) {
+      document.getElementById("debug").textContent =
+        "UI refresh error: " + e.message;
+    }
+  }
+
+  async function sendCmd(text) {
+    await fetch(`${BASE}/command`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text })
+    });
+    await refresh();
+  }
+
+  setInterval(refresh, 500);
+  refresh();
+
+  window.sendCmd = sendCmd;
+</script>
+</body>
+</html>
